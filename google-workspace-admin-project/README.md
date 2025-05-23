@@ -17,3 +17,15 @@ This project simulates the configuration of HR and Engineering departments withi
 - Email routing for compliance
 
 ## 📁 Folder Structure
+
+
+google-workspace-admin-project/
+├── README.md
+├── Engineering_Project_Checklist.pdf
+├── policies/
+│   ├── device-policy.md
+│   └── sharing-policy.md
+├── screenshots/
+│   └── project-visual.png
+
+<!-- updated on May 25 -->
