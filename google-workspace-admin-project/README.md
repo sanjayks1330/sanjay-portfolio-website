@@ -18,7 +18,7 @@ This project simulates the configuration of HR and Engineering departments withi
 
 ## 📁 Folder Structure
 
-
+```
 google-workspace-admin-project/
 ├── README.md
 ├── Engineering_Project_Checklist.pdf
@@ -27,5 +27,6 @@ google-workspace-admin-project/
 │   └── sharing-policy.md
 ├── screenshots/
 │   └── project-visual.png
+```
 
 <!-- updated on May 25 -->
