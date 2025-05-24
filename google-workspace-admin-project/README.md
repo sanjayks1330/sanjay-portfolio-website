@@ -62,15 +62,16 @@ google-workspace-admin-project/
 ├── README.md
 ├── Engineering_Project_Checklist.pdf
 ├── policies/
-│ ├── device-policy.md
-│ └── sharing-policy.md
+│   ├── device-policy.md
+│   └── sharing-policy.md
 ├── screenshots/
-│ └── project-visual.png
+│   └── project-visual.png
 └── user-lifecycle-automation/
-├── mock-data/
-│ └── onboarding-users.csv
-└── scripts/
-└── gam-onboard.sh
+    ├── README.md
+    ├── mock-data/
+    │   └── onboarding-users.csv
+    └── scripts/
+        └── gam-onboard.sh
 </pre>
 ---
 
