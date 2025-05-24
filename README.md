@@ -18,7 +18,10 @@ Simulated a real-world Google Workspace domain configuration at `sanjaytech.io` 
 - Documented all work in Markdown and PDF checklist format
 
 📁 [View project folder](google-workspace-admin-project/README.md)  
-📸 Screenshot preview: [Project Visual](google-workspace-admin-project/screenshots/project-visual.png)  
+### 📸 Screenshot Preview
+
+![Google Workspace Overview](google-workspace-admin-project/screenshots/project-visual.png)
+
 📄 Download the checklist: [Engineering_Project_Checklist.pdf](google-workspace-admin-project/Engineering_Project_Checklist.pdf)
 
 ---
