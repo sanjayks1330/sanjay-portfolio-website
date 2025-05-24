@@ -33,12 +33,6 @@ Simulated a real-world Google Workspace domain configuration at `sanjaytech.io` 
 
 ---
 
-### 🎞️ Live Demo
-
-![Onboarding Demo](google-workspace-admin-project/screenshots/onboarding-demo.gif)
-
----
-
 ### 👥 Sample Users Created
 
 | Name          | Email                          | Department  | Alias        |
