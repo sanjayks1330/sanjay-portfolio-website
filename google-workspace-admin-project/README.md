@@ -7,10 +7,10 @@
 - [💻 Engineering Configuration](#-engineering-configuration)
 - [🔄 User Lifecycle Automation](#-user-lifecycle-automation)
 - [📁 Full Folder Structure](#-full-folder-structure)
-- [🧰 Technologies Used](#technologies-used)
-- [🚀 How to Run the Project](#how-to-run-the-project)
-- [🔮 Future Enhancements](#future-enhancements)
-- [👤 Author](#author)
+- [🧰 Technologies Used](#-technologies-used)
+- [🚀 How to Run the Project](#-how-to-run-the-project)
+- [🔮 Future Enhancements](#-future-enhancements)
+- [👤 Author](#-author)
 
 ---
 
