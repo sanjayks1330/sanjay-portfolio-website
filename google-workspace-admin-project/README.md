@@ -56,7 +56,7 @@ This project simulates the configuration of HR and Engineering departments withi
 
 ## 📁 Folder Structure
 
-<pre> ``` 
+<pre>
 google-workspace-admin-project/
 ├── README.md
 ├── Engineering_Project_Checklist.pdf
@@ -70,7 +70,7 @@ google-workspace-admin-project/
 │ └── onboarding-users.csv
 └── scripts/
 └── gam-onboard.sh
-<pre> ``` 
+<pre>
 
 ---
 
