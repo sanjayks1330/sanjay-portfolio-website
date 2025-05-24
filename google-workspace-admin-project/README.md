@@ -7,11 +7,10 @@
 - [💻 Engineering Configuration](#-engineering-configuration)
 - [🔄 User Lifecycle Automation](#-user-lifecycle-automation)
 - [📁 Full Folder Structure](#-full-folder-structure)
-- [🛠️ Technologies Used](#️-technologies-used)
-- [▶️ How to Run the Project](#️-how-to-run-the-project)
-- [🚀 Future Enhancements](#-future-enhancements)
-- [✍️ Author](#️-author)
-
+- [🧰 Technologies Used](#technologies-used)
+- [🚀 How to Run the Project](#how-to-run-the-project)
+- [🔮 Future Enhancements](#future-enhancements)
+- [👤 Author](#author)
 
 ---
 
@@ -76,8 +75,7 @@ google-workspace-admin-project/
 
 ---
 
-## 🛠️ Technologies Used
-
+## Technologies Used 🧰
 - **Google Workspace Admin Console**: For managing users, groups, and organizational units.
 - **GAM (Google Apps Manager)**: For scripting user creation, alias assignment, and group membership.
 - **Bash Scripting**: Automates batch onboarding and configuration using the command line.
@@ -85,7 +83,7 @@ google-workspace-admin-project/
 
 ---
 
-## ▶️ How to Run the Project
+## How to Run the Project 🚀
 
 1. **Clone the repository**  
 git clone https://github.com/sanjayks1330/it-projects-portfolio.git
@@ -97,7 +95,7 @@ cd google-workspace-admin-project/user-lifecycle-automation
 ./scripts/gam-onboard.sh
 Make sure gam is installed and configured properly on your system.
 
-🚀 Future Enhancements
+## Future Enhancements 🔮
 
 ✅ Offboarding automation: suspend accounts, remove groups, and revoke aliases.
 
@@ -107,7 +105,7 @@ Make sure gam is installed and configured properly on your system.
 
 ✅ Generate audit reports on onboarding execution.
 
-✍️ Author
+## Author 👤
 
 Sanjay Krishnan
 LinkedIn
