@@ -18,11 +18,65 @@ Simulated a real-world Google Workspace domain configuration at `sanjaytech.io` 
 - Documented all work in Markdown and PDF checklist format
 
 📁 [View project folder](google-workspace-admin-project/README.md)  
-### 📸 Screenshot Preview
-
-![Google Workspace Overview](google-workspace-admin-project/screenshots/project-visual.png)
-
+📸 Screenshot preview: ![Project Visual](google-workspace-admin-project/screenshots/project-visual.png)  
 📄 Download the checklist: [Engineering_Project_Checklist.pdf](google-workspace-admin-project/Engineering_Project_Checklist.pdf)
+
+---
+
+### 🧰 Core Skills & Tools
+
+- Google Workspace Admin Console
+- GAM (Google Apps Manager)
+- Bash & shell scripting
+- Policy-based administration (OUs, Groups, 2FA, sharing)
+- Markdown & GitHub documentation
+
+---
+
+### 🎞️ Live Demo
+
+![Onboarding Demo](google-workspace-admin-project/screenshots/onboarding-demo.gif)
+
+---
+
+### 👥 Sample Users Created
+
+| Name          | Email                          | Department  | Alias        |
+|---------------|--------------------------------|-------------|--------------|
+| Alice HR      | alice.hr@sanjaytech.io         | HR          | a.hr         |
+| Ravi Mehta    | ravi.mehta@sanjaytech.io       | Engineering | r.mehta      |
+| Priya Menon   | priya.menon@sanjaytech.io      | HR          | p.menon      |
+
+---
+
+### 🔐 Security Measures
+
+- Enforced 2-Step Verification (2FA)
+- Blocked rooted/jailbroken mobile access
+- Gmail sharing restricted for HR
+- Email routing controls for Engineering
+
+---
+
+### 📂 Full Folder Structure
+
+```
+it-projects-portfolio/
+└── google-workspace-admin-project/
+├── README.md
+├── Engineering_Project_Checklist.pdf
+├── policies/
+│ ├── device-policy.md
+│ └── sharing-policy.md
+├── screenshots/
+│ └── project-visual.png
+└── user-lifecycle-automation/
+├── README.md
+├── mock-data/
+│ └── onboarding-users.csv
+└── scripts/
+└── gam-onboard.sh
+```
 
 ---
 
