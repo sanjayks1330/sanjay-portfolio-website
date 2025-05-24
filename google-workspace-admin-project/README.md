@@ -57,8 +57,8 @@ This project simulates the configuration of HR and Engineering departments withi
 
 ## 📁 Full Folder Structure
 
-
-'''google-workspace-admin-project/
+<pre>
+google-workspace-admin-project/
 ├── README.md
 ├── Engineering_Project_Checklist.pdf
 ├── policies/
@@ -70,8 +70,8 @@ This project simulates the configuration of HR and Engineering departments withi
 ├── mock-data/
 │ └── onboarding-users.csv
 └── scripts/
-└── gam-onboard.sh'''
-
+└── gam-onboard.sh
+</pre>
 ---
 
 ## 🧰 Technologies Used
@@ -96,7 +96,7 @@ Make sure gam is installed and configured properly on your system.
 
 ---
 
-## 🔮 Future Enhancements
+🔮 Future Enhancements
 
 ✅ Offboarding automation: suspend accounts, remove groups, and revoke aliases.
 
@@ -108,7 +108,7 @@ Make sure gam is installed and configured properly on your system.
 
 ---
 
-## 👤 Author
+👤 Author
 
 Sanjay Krishnan
 LinkedIn
