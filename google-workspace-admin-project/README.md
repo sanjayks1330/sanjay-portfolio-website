@@ -57,7 +57,7 @@ This project simulates the configuration of HR and Engineering departments withi
 
 ## 📁 Full Folder Structure
 
-<pre>
+'''
 google-workspace-admin-project/
 ├── README.md
 ├── Engineering_Project_Checklist.pdf
@@ -71,8 +71,7 @@ google-workspace-admin-project/
 │ └── onboarding-users.csv
 └── scripts/
 └── gam-onboard.sh
-<pre>
-
+'''
 ---
 
 ## Technologies Used 🧰
@@ -95,6 +94,8 @@ cd google-workspace-admin-project/user-lifecycle-automation
 ./scripts/gam-onboard.sh
 Make sure gam is installed and configured properly on your system.
 
+---
+
 ## Future Enhancements 🔮
 
 ✅ Offboarding automation: suspend accounts, remove groups, and revoke aliases.
@@ -104,6 +105,8 @@ Make sure gam is installed and configured properly on your system.
 ✅ Setup email filters and alerts for onboarding confirmation.
 
 ✅ Generate audit reports on onboarding execution.
+
+---
 
 ## Author 👤
 
