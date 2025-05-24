@@ -56,6 +56,7 @@ This project simulates the configuration of HR and Engineering departments withi
 
 ## 📁 Folder Structure
 
+"
 google-workspace-admin-project/
 ├── README.md
 ├── Engineering_Project_Checklist.pdf
@@ -70,6 +71,8 @@ google-workspace-admin-project/
 └── scripts/
 └── gam-onboard.sh
 
+"
+
 ---
 
 ## 🧰 Technologies Used
@@ -83,7 +86,6 @@ google-workspace-admin-project/
 ## 🚀 How to Run the Project
 
 1. **Clone the repository**  
-```bash
 git clone https://github.com/sanjayks1330/it-projects-portfolio.git
 
 2.Navigate to the onboarding automation directory
