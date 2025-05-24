@@ -57,8 +57,8 @@ This project simulates the configuration of HR and Engineering departments withi
 
 ## 📁 Full Folder Structure
 
-'''
-google-workspace-admin-project/
+
+'''google-workspace-admin-project/
 ├── README.md
 ├── Engineering_Project_Checklist.pdf
 ├── policies/
@@ -70,11 +70,11 @@ google-workspace-admin-project/
 ├── mock-data/
 │ └── onboarding-users.csv
 └── scripts/
-└── gam-onboard.sh
-'''
+└── gam-onboard.sh'''
+
 ---
 
-## Technologies Used 🧰
+## 🧰 Technologies Used
 - **Google Workspace Admin Console**: For managing users, groups, and organizational units.
 - **GAM (Google Apps Manager)**: For scripting user creation, alias assignment, and group membership.
 - **Bash Scripting**: Automates batch onboarding and configuration using the command line.
@@ -82,7 +82,7 @@ google-workspace-admin-project/
 
 ---
 
-## How to Run the Project 🚀
+## 🚀 How to Run the Project
 
 1. **Clone the repository**  
 git clone https://github.com/sanjayks1330/it-projects-portfolio.git
@@ -96,7 +96,7 @@ Make sure gam is installed and configured properly on your system.
 
 ---
 
-## Future Enhancements 🔮
+## 🔮 Future Enhancements
 
 ✅ Offboarding automation: suspend accounts, remove groups, and revoke aliases.
 
@@ -108,7 +108,7 @@ Make sure gam is installed and configured properly on your system.
 
 ---
 
-## Author 👤
+## 👤 Author
 
 Sanjay Krishnan
 LinkedIn
