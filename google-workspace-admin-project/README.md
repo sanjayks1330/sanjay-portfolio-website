@@ -1,15 +1,17 @@
 # 🛠️ Google Workspace Admin Project – HR & Engineering Department Setup
 
 ## 📚 Table of Contents
-- [📌 Project Overview](#-project-overview)
-- [🧾 HR Configuration](#-hr-configuration)
-- [💻 Engineering Configuration](#-engineering-configuration)
-- [👥 User Lifecycle Automation](#-user-lifecycle-automation)
-- [📁 Folder Structure](#-folder-structure)
-- [🧰 Technologies Used](#-technologies-used)
-- [🚀 How to Run the Project](#-how-to-run-the-project)
-- [🔮 Future Enhancements](#-future-enhancements)
-- [👤 Author](#-author)
+
+- [📌 Project Overview](#project-overview)
+- [👥 HR Configuration](#hr-configuration)
+- [💻 Engineering Configuration](#engineering-configuration)
+- [🔄 User Lifecycle Automation](#user-lifecycle-automation)
+- [📁 Full Folder Structure](#full-folder-structure)
+- [🧰 Technologies Used](#technologies-used)
+- [🚀 How to Run the Project](#how-to-run-the-project)
+- [🔮 Future Enhancements](#future-enhancements)
+- [👤 Author](#author)
+
 
 ---
 
