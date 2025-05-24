@@ -96,7 +96,7 @@ Make sure gam is installed and configured properly on your system.
 
 ---
 
-🔮 Future Enhancements
+## 🔮 Future Enhancements
 
 ✅ Offboarding automation: suspend accounts, remove groups, and revoke aliases.
 
@@ -108,7 +108,7 @@ Make sure gam is installed and configured properly on your system.
 
 ---
 
-👤 Author
+## 👤 Author
 
 Sanjay Krishnan
 LinkedIn
