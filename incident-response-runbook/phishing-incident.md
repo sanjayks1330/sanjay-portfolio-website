@@ -4,7 +4,7 @@ This document outlines the full response process for handling phishing attacks w
 
 ---
 
-## 🚨 Phase 1: Triage Checklist (Initial Investigation)
+## 🚨 Phase 1: Detection & Triage
 
 Use this checklist to quickly assess and triage reported phishing emails or login attempts within Google Workspace.
 
@@ -20,7 +20,7 @@ Use this checklist to quickly assess and triage reported phishing emails or logi
 
 ---
 
-## 🧭 Phase 2: Identification
+## 🧭 Phase 2: Identification & Scope
 
 ### 🔍 How the Threat Was Detected
 - User reports suspicious email
@@ -36,7 +36,7 @@ Use this checklist to quickly assess and triage reported phishing emails or logi
 
 ---
 
-## 🛠️ Phase 3: Containment
+## 🛠️ Phase 3: Containment & Eradication
 
 ### 🧹 Email Deletion – Simulated via Admin Console
 
@@ -59,10 +59,11 @@ GAM's delete functionality requires:
 
 ---
 
-## 👥 Phase 4: User Communication
+## 👥 Phase 4: User Notification
 
 ### 📨 Initial Warning Email Template
 
+```
 Subject: Immediate Action Required – Phishing Email Detected
 
 Hi [User],
@@ -73,29 +74,28 @@ Then, empty your Trash and confirm you did not click any links.
 
 If you did interact with the email, contact IT support immediately.
 
-Thanks,
+Thanks,  
 IT Security Team
-
+```
 
 ### 📄 Confirmation Follow-Up Email
 
+```
 Subject: Confirmation Needed – Phishing Email Deletion
 
 Hi [User],
 
 Please confirm the following:
 
-You have deleted the phishing email
-
-You emptied the Trash folder
-
-You did NOT click any links or enter credentials
+You have deleted the phishing email  
+You emptied the Trash folder  
+You did NOT click any links or enter credentials  
 
 If you did, let us know immediately for account review.
 
-Thanks,
+Thanks,  
 IT Security Team
-
+```
 
 ### ✅ Follow-Up Checklist
 
@@ -108,7 +108,7 @@ IT Security Team
 
 ---
 
-## 🔐 Phase 5: Account Compromise Workflow (If Applicable)
+## 🔐 Phase 5: Account Compromise Remediation
 
 If user admits interaction (clicked link or submitted login):
 
@@ -122,6 +122,8 @@ If user admits interaction (clicked link or submitted login):
 ---
 
 ## 🔁 Phase 6: Post-Incident Review
+
+🔗 [Post-Incident Review Summary](./post-incident-review.md)
 
 ### 📘 Lessons Learned
 - Was the phishing realistic or obvious?
@@ -141,9 +143,14 @@ If user admits interaction (clicked link or submitted login):
 | File | Purpose |
 |------|---------|
 | `admin-console-email-search.png` | Screenshot of manual search |
-| `phishing-incident.md` | This runbook |
-| `triage-checklist.md` _(optional)_ | Original standalone triage file |
-| `gam-error-log.txt` _(optional)_ | GAM limitation output |
+| `reset-password-and-security-status.png` | Account reset evidence |
+| `2fa-status.png` | 2FA audit |
+| `login-activity-query.png` | Login activity verification |
+| `investigate-tab-logs.png` | Admin audit review |
+| `oauth-app-review.png` | Trusted apps config |
+| `gam-error-log.txt` | GAM limitation output |
+| `phishing-awareness-email.md` | Follow-up user communication |
+| `post-incident-review.md` | Summary of resolution and improvements |
 
 ---
 
@@ -152,4 +159,3 @@ If user admits interaction (clicked link or submitted login):
 **Sanjay Krishnan**  
 Email: sanjay.krishnan@sanjaytech.io  
 GitHub: [@sanjayks1330](https://github.com/sanjayks1330)
-

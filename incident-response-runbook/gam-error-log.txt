@@ -1,0 +1,21 @@
+Command:
+./gam user alice.hr@sanjaytech.io delete messages query "from:phisher@example.com"
+
+Output:
+-------------------------------------------------------------
+ERROR: Service Account OAuth2 File: /Users/sanjayks/.gam/oauth2service.json, Does not exist or has invalid format,
+Unable to load PEM file. See https://cryptography.io/en/latest/faq/#why-can-t-i-import-my-pem-file for more details. MalformedFraming
+
+Please run:
+  gam create|use project
+  gam user <user> update serviceaccount
+
+to create and authorize a Service account.
+
+Explanation:
+- Service account key upload is blocked by org policy:
+  Constraint: constraints/iam.disableServiceAccountKeyUpload
+- GAM fallback to user OAuth not supported for delete messages
+- Manual deletion or Gmail Investigation Tool required
+-------------------------------------------------------------
+
