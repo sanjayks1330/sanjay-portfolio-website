@@ -6,7 +6,10 @@ Welcome to my curated portfolio of hands-on IT projects. This repository showcas
 
 ## 📂 Projects
 
+---
+
 ### 🔧 Google Workspace Admin Project – HR & Engineering Setup
+
 Simulated a real-world Google Workspace domain configuration at `sanjaytech.io` for internal departments.
 
 **Key Features:**
@@ -23,12 +26,32 @@ Simulated a real-world Google Workspace domain configuration at `sanjaytech.io` 
 
 ---
 
-### 🧰 Core Skills & Tools
+### 🔐 Cloud IAM & Endpoint Security Project (GCP + Workspace)
+
+A two-phase simulation of identity-based and device-based access management in Google Cloud and Google Workspace.
+
+**Phase 1: IAM Role-Based Access Control**
+- Created custom IAM roles for HR and Engineering
+- Assigned roles to specific Workspace users via `gcloud`
+- Verified role bindings and attempted audit logging
+- Documented the full setup with screenshots and scripts
+
+**Phase 2: Context-Aware Access (Simulated)**
+- Simulated enforcement of device policies like screen lock, encryption, and endpoint verification
+- Created mock screenshots and documentation to show intent and planning
+- Explained Workspace edition limitations and how this would be implemented in an Enterprise setup
+
+📁 [View project folder](cloud-iam-security-project/README.md)
+
+---
+
+## 🧰 Core Skills & Tools
 
 - Google Workspace Admin Console
+- Google Cloud IAM, Logs Explorer
 - GAM (Google Apps Manager)
 - Bash & shell scripting
-- Policy-based administration (OUs, Groups, 2FA, sharing)
+- Context-Aware Access (documented)
 - Markdown & GitHub documentation
 
 ---
@@ -47,44 +70,32 @@ Simulated a real-world Google Workspace domain configuration at `sanjaytech.io` 
 
 - Enforced 2-Step Verification (2FA)
 - Blocked rooted/jailbroken mobile access
-- Gmail sharing restricted for HR
-- Email routing controls for Engineering
+- IAM roles based on department
+- Device policy compliance planning
+- Gmail sharing restrictions and email routing for sensitive departments
 
 ---
 
-### 📂 Full Folder Structure
+### 📂 Full Folder Structure (Simplified)
 
 ```
-it-projects-portfolio/
-└── google-workspace-admin-project/
-├── README.md
-├── Engineering_Project_Checklist.pdf
-├── policies/
-│ ├── device-policy.md
-│ └── sharing-policy.md
-├── screenshots/
-│ └── project-visual.png
-└── user-lifecycle-automation/
-├── README.md
-├── mock-data/
-│ └── onboarding-users.csv
-└── scripts/
-└── gam-onboard.sh
+├── google-workspace-admin-project/
+│ ├── README.md
+│ └── user-lifecycle-automation/
+│ └── scripts/gam-onboard.sh
+├── cloud-iam-security-project/
+│ ├── phase-1-iam/
+│ │ ├── README.md
+│ │ └── check_iam_logs.sh
+│ └── phase-2-endpoint-security/
+│ ├── context_aware_access.md
+│ └── device_policy_setup.md
+
 ```
-
----
-
-## 🌱 More Projects Coming Soon...
-This repository will continue to grow with additional hands-on projects covering:
-
-- Windows Server automation
-- Cloud IAM & endpoint security
-- IT helpdesk simulations
-- Network and policy audits
-
 ---
 
 ## 🧠 About Me
+
 I'm an IT support specialist with hands-on experience managing digital workplaces, Google Workspace, Microsoft systems, and user access policies. I’m passionate about creating secure, efficient, and well-documented IT solutions.
 
 🔗 [LinkedIn Profile](https://www.linkedin.com/in/sanjay-krishnan-aa985b134/)  
