@@ -45,13 +45,30 @@ A two-phase simulation of identity-based and device-based access management in G
 
 ---
 
+### 🛡️ Incident Response Runbook – Google Workspace
+
+A real-world simulation of handling a phishing attack in a Google Workspace environment. This project includes detection, containment, user communication, and post-incident review.
+
+**Key Activities:**
+- Triaged phishing message with Admin Console and GAM
+- Simulated account compromise response and 2FA enforcement
+- Reviewed login activity and OAuth application access
+- Created audit log artifacts, GAM limitations, and security notifications
+- Documented end-to-end runbook for real-world reference
+
+📁 [View runbook folder](cloud-iam-security-project/incident-response-runbook/)  
+📄 [Read the full incident response](cloud-iam-security-project/incident-response-runbook/phishing-incident.md)  
+🧾 [Post-Incident Review](cloud-iam-security-project/incident-response-runbook/post-incident-review.md)
+
+---
+
 ## 🧰 Core Skills & Tools
 
 - Google Workspace Admin Console
-- Google Cloud IAM, Logs Explorer
+- Google Cloud IAM & Logs Explorer
 - GAM (Google Apps Manager)
 - Bash & shell scripting
-- Context-Aware Access (documented)
+- Context-Aware Access (simulated)
 - Markdown & GitHub documentation
 
 ---
@@ -80,16 +97,20 @@ A two-phase simulation of identity-based and device-based access management in G
 
 ```
 ├── google-workspace-admin-project/
-│ ├── README.md
-│ └── user-lifecycle-automation/
-│ └── scripts/gam-onboard.sh
+│   ├── README.md
+│   └── user-lifecycle-automation/
+│       └── scripts/gam-onboard.sh
 ├── cloud-iam-security-project/
-│ ├── phase-1-iam/
-│ │ ├── README.md
-│ │ └── check_iam_logs.sh
-│ └── phase-2-endpoint-security/
-│ ├── context_aware_access.md
-│ └── device_policy_setup.md
+│   ├── phase-1-iam/
+│   │   ├── README.md
+│   │   └── check_iam_logs.sh
+│   └── phase-2-endpoint-security/
+│       ├── context_aware_access.md
+│       └── device_policy_setup.md
+│   └── incident-response-runbook/
+│       ├── phishing-incident.md
+│       ├── post-incident-review.md
+│       └── screenshots/
 
 ```
 ---
