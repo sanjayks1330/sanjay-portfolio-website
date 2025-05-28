@@ -1,58 +1,63 @@
-# 📝 Incident Summary – Phase 1: Creator Policy Escalation
+# 🧾 Incident Summary – Simulated Creator Policy Escalation
 
-This document captures the summary of a simulated security incident involving policy misconfiguration for a "Content Creators" organizational unit within the Google Workspace environment at `sanjaytech.io`.
-
----
-
-## 📌 Incident Overview
-
-- **Incident Type:** Policy Misconfiguration & Over-Privilege Risk
-- **Date Detected:** 28-05-2025
-- **Simulated User Affected:** `creator.user@sanjaytech.io`
-- **Organizational Unit:** `/ContentCreators`
+This document summarizes a simulated security policy failure involving a user from the Content Creators organizational unit within the `sanjaytech.io` Google Workspace environment.
 
 ---
 
-## ⚠️ Summary of Misconfiguration
+## 🎯 Incident Overview
 
-A simulated "Content Creators" user was incorrectly provisioned with elevated access to GCP resources and unrestricted Workspace settings. This over-permissioned state could lead to unauthorized data sharing, service configuration changes, or privilege escalation via app integrations.
-
----
-
-## 🔍 Key Risk Factors
-
-| Risk Area                    | Description                                                                 |
-|-----------------------------|-----------------------------------------------------------------------------|
-| Org Unit Policy Gap         | Lacked proper access control enforcement (e.g., sharing, app restrictions). |
-| IAM Role Assignment          | Creator user assigned broad Viewer/Editor GCP roles.                        |
-| OAuth & Marketplace Access  | No app access restrictions, allowing risky third-party integrations.        |
+| Field                   | Details                                       |
+|------------------------|-----------------------------------------------|
+| **Simulated User**     | Chris Creator (`creator.user@sanjaytech.io`) |
+| **Org Unit**           | /ContentCreators                              |
+| **Incident Type**      | Unauthorized OAuth App Install + Data Sharing |
+| **Environment**        | Google Workspace (Standard Edition)           |
+| **Simulation Scope**   | Phase 1 – Policy Escalation Test              |
+| **Detection Method**   | Manual testing + screenshots                  |
+| **Admin Response**     | Pending corrective policy configuration       |
 
 ---
 
-## 🛠️ Corrective Actions (Simulated)
+## 🚩 Simulated Policy Violations
 
-- Created `/ContentCreators` OU in Admin Console.
-- Reviewed user profile for `creator.user@sanjaytech.io`.
-- Documented the risk and planned policy corrections.
-- Phase 2 will simulate endpoint and sharing policy enforcement.
-
----
-
-## 📎 Attachments
-
-| File Name             | Description                             |
-|----------------------|-----------------------------------------|
-| `creator-profile.png` | User account profile screenshot         |
+| Action Attempted                         | Expected Policy Block | Actual Result            |
+|-----------------------------------------|------------------------|---------------------------|
+| Installed OAuth App (YT Tracker)        | Block unauthorized app | ❌ App installed allowed  |
+| Shared Drive File Publicly              | Restrict public links  | ❌ Link sharing allowed   |
+| Sent External Email                     | Block external email   | ❌ Email sent successfully |
+| 2FA Enforcement on Login                | Require 2FA            | ✅ Login blocked (as expected) |
 
 ---
 
-## 🧠 Lessons & Next Steps
+## 🧠 Lessons Simulated
 
-- Always enforce access controls at OU level during user onboarding.
-- Apply least privilege principle when assigning GCP IAM roles.
-- Proceed to **Phase 2** to enforce device, sharing, and app access policies.
+- OAuth App control policy is not yet enforced at the Org Unit level.
+- Drive sharing controls are insufficient for restricted user groups.
+- External email restrictions were not applied to `/ContentCreators`.
+- 2-Step Verification enforcement **was successful** — blocked login due to missing 2FA.
 
 ---
 
-📁 Saved as part of:
-`simulated-creator-policy-escalation/phase-1-policy-escalation/incident-summary.md`
+## 📌 Recommendations
+
+- Enforce Context-Aware Access and Device-Based login restrictions.
+- Add `/ContentCreators` to restricted sharing groups in Drive settings.
+- Apply OAuth App allowlist to limit unauthorized third-party tools.
+- Monitor policy logs and alerts in the Admin console.
+
+---
+
+## 📁 Supporting Evidence (Screenshots)
+
+| Screenshot File                    | Description                                |
+|-----------------------------------|--------------------------------------------|
+| `creator-profile.png`             | Shows the user and OU assignment           |
+| `creator-login-restriction.png`   | Shows failed login due to missing 2FA      |
+| `unauthorized-oauth-app-installed.png` | YT Tracker installed from Marketplace     |
+| `drive-sharing-allowed.png`       | File shared with "Anyone with the link"    |
+| `external-email-sent.png`         | External email sent from restricted user   |
+
+---
+
+**Prepared by:** Sanjay Krishnan  
+**Date:** May 28, 2025
