@@ -1,0 +1,12 @@
+title: "HRViewer"
+description: "Read-only IAM and logging access for HR auditing"
+stage: "GA"
+includedPermissions:
+  - resourcemanager.projects.get
+  - iam.roles.list
+  - iam.roles.get
+  - logging.logEntries.list
+  - logging.logMetrics.list
+  - logging.sinks.list
+  - logging.views.list
+
