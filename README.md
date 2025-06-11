@@ -45,6 +45,23 @@ A two-phase simulation of identity-based and device-based access management in G
 
 ---
 
+### ☁️ GCP Application Migration & IAM Security Project
+
+Simulates a real-world cloud migration using GCP services including Cloud Run, IAM, Cloud Storage, and Cloud Logging.
+
+**Project Highlights:**
+- Designed and assigned IAM roles for secure access (HR & Engineering)
+- Containerized and deployed a Python Flask app using Docker and Cloud Run
+- Created Cloud Storage bucket with uniform bucket-level access
+- Implemented access logging with audit trails to a dedicated log bucket
+- Verified access behavior via simulated service accounts and IAM policies
+
+📁 [View project folder](gcp-application-migration-project/README.md)  
+📷 Architecture: ![Architecture](gcp-application-migration-project/documentation/architecture.png)  
+📝 [Migration Summary](gcp-application-migration-project/documentation/migration-summary.md)
+
+---
+
 ### 🛡️ Incident Response Runbook – Google Workspace
 
 A real-world simulation of handling a phishing attack in a Google Workspace environment. This project includes detection, containment, user communication, and post-incident review.
@@ -67,8 +84,10 @@ A real-world simulation of handling a phishing attack in a Google Workspace envi
 - Google Workspace Admin Console
 - Google Cloud IAM & Logs Explorer
 - GAM (Google Apps Manager)
+- GCP CLI (gcloud, gsutil)
+- Docker & Cloud Run
 - Bash & shell scripting
-- Context-Aware Access (simulated)
+- IAM & audit policy design
 - Markdown & GitHub documentation
 
 ---
@@ -90,6 +109,7 @@ A real-world simulation of handling a phishing attack in a Google Workspace envi
 - IAM roles based on department
 - Device policy compliance planning
 - Gmail sharing restrictions and email routing for sensitive departments
+- GCP Cloud IAM access control & logging for data access
 
 ---
 
@@ -111,8 +131,14 @@ A real-world simulation of handling a phishing attack in a Google Workspace envi
 │       ├── phishing-incident.md
 │       ├── post-incident-review.md
 │       └── screenshots/
-
+├── gcp-application-migration-project/
+│   ├── phase-1-iam-policy-design/
+│   ├── phase-2-app-deployment/
+│   ├── phase-3-data-access-control/
+│   ├── gsutil-scripts/
+│   └── documentation/
 ```
+
 ---
 
 ## 🧠 About Me

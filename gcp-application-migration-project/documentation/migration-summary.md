@@ -6,7 +6,7 @@ This document provides a high-level summary of the simulated application migrati
 
 ## 🌐 Phase 1 – IAM Policy Design
 
-Objective: Establish secure and role-specific Identity and Access Management (IAM) roles.
+**Objective**: Establish secure and role-specific Identity and Access Management (IAM) roles.
 
 ### Key Actions:
 - Created a custom role `HRViewer` for the HR team with read-only access to IAM and logging.
@@ -16,42 +16,55 @@ Objective: Establish secure and role-specific Identity and Access Management (IA
   - `ravi.mehta@sanjaytech.io` as `EngineeringOperator`
 
 ### Outcome:
-IAM role assignment demonstrates principle of least privilege and user-based security boundaries.
+IAM role assignment demonstrates the principle of least privilege and separation of duties.
 
 ---
 
 ## 🚀 Phase 2 – App Deployment
 
-Objective: Containerize and deploy a Flask-based Python application using Docker.
+**Objective**: Containerize and deploy a Flask-based Python application using Docker.
 
 ### Key Actions:
-- Built a Python app (`app.py`) and defined dependencies in `requirements.txt`
-- Created a `Dockerfile` to containerize the application.
-- Successfully built and ran the container locally using:
+- Developed a simple Python web app (`app.py`) and declared dependencies in `requirements.txt`.
+- Created a `Dockerfile` and built the image using:
   ```bash
   docker build -t my-flask-app .
   docker run -p 5050:5000 my-flask-app
   ```
-- Verified accessibility via `http://localhost:5050`
+- Accessed the running container via `http://localhost:5050`.
 
 ### Outcome:
-Demonstrated local Docker-based deployment, a fundamental part of cloud-native app migration.
+Successfully demonstrated app containerization and local testing, foundational to cloud deployment pipelines.
 
 ---
 
-## 🔐 Phase 3 – Data Access Control
+## 🔐 Phase 3 – Data Access Control & Logging
 
-Objective: Implement GCS bucket-level IAM to ensure secure and role-appropriate access.
+**Objective**: Implement GCS bucket-level IAM and access audit logging.
 
 ### Key Actions:
-- Created bucket: `gcp-app-data-bucket`
-- Assigned GCS roles:
+- Created bucket: `gcp-app-data-bucket` (with uniform access enabled)
+- Created access log bucket: `gcp-access-logs`
+- Enabled audit logging:
+  ```bash
+  gsutil logging set on -b gs://gcp-access-logs -o access-log gs://gcp-app-data-bucket
+  ```
+- IAM roles assigned:
   - `ravi.mehta@sanjaytech.io`: **Storage Object Admin**
   - `alice.hr@sanjaytech.io`: **Storage Object Viewer**
-- Verified role bindings through GCP Console and CLI
+- Role bindings and audit logs were validated using the GCP Console and Logs Explorer.
 
 ### Outcome:
-Illustrated secure access control using GCS IAM policies.
+Demonstrated secure, auditable access control using GCP-native tools and `gsutil` automation.
+
+---
+
+## 🛠️ Supporting Automation Scripts
+
+Stored in `gsutil-scripts/`:
+- `create-bucket.sh` – Automates bucket creation with uniform access
+- `assign-iam-roles.sh` – Applies bucket-level IAM roles to users
+- `enable-logging.sh` – Sets up audit logging for GCS access tracking
 
 ---
 
@@ -60,10 +73,11 @@ Illustrated secure access control using GCS IAM policies.
 This project simulates real-world app migration patterns with emphasis on:
 
 - **Custom IAM policies**
-- **Cloud-native deployment using Docker**
-- **Cloud Storage access control**
+- **Containerized app deployment using Docker**
+- **Storage-level access control and logging**
+- **Automation via `gsutil` scripting**
 
-It aligns well with customer engineering, application modernization, and security best practices in GCP.
+It aligns with GCP best practices for security, observability, and cloud-native transformation.
 
 ---
 
