@@ -229,7 +229,7 @@
 })();
 
 
-// Gallery carousel functionality - smooth infinite loop
+// gallery Carousel JavaScript for smooth click of images
 let currentSlide = 0;
 let isTransitioning = false;
 
@@ -243,60 +243,63 @@ function setupGallery() {
     const gallery = document.getElementById('gallery-grid');
     if (!gallery) return;
     
-    // Clone first and last few items for infinite loop effect
     const items = gallery.querySelectorAll('.gallery-item');
+    const totalItems = items.length;
     const itemsPerView = getItemsPerView();
     
-    // Clear any existing clones
-    gallery.querySelectorAll('.clone').forEach(clone => clone.remove());
-    
-    // Clone last items to beginning
-    for (let i = items.length - itemsPerView; i < items.length; i++) {
-        const clone = items[i].cloneNode(true);
-        clone.classList.add('clone');
-        gallery.insertBefore(clone, items[0]);
+    // Only clone if we have more items than items per view
+    if (totalItems > itemsPerView) {
+        // Clear any existing clones
+        gallery.querySelectorAll('.clone').forEach(clone => clone.remove());
+        
+        // Clone last items to beginning
+        for (let i = Math.max(0, totalItems - itemsPerView); i < totalItems; i++) {
+            const clone = items[i].cloneNode(true);
+            clone.classList.add('clone');
+            gallery.insertBefore(clone, items[0]);
+        }
+        
+        // Clone first items to end
+        for (let i = 0; i < Math.min(itemsPerView, totalItems); i++) {
+            const clone = items[i].cloneNode(true);
+            clone.classList.add('clone');
+            gallery.appendChild(clone);
+        }
+        
+        currentSlide = itemsPerView;
+    } else {
+        currentSlide = 0;
     }
     
-    // Clone first items to end
-    for (let i = 0; i < itemsPerView; i++) {
-        const clone = items[i].cloneNode(true);
-        clone.classList.add('clone');
-        gallery.appendChild(clone);
-    }
-    
-    // Start at the first real item (after clones)
-    currentSlide = itemsPerView;
     updateGalleryPosition(false);
 }
 
 function updateGalleryPosition(animate = true) {
     const gallery = document.getElementById('gallery-grid');
-    if (!gallery) return;
+    if (!gallery || !gallery.children.length) return;
     
-    const itemWidth = gallery.children[0].offsetWidth + 20; // width + gap
+    const itemWidth = gallery.children[0].offsetWidth + 20;
     const translateX = -(currentSlide * itemWidth);
     
-    if (animate) {
-        gallery.style.transition = 'transform 0.5s ease';
-    } else {
-        gallery.style.transition = 'none';
-    }
-    
+    gallery.style.transition = animate ? 'transform 0.5s ease' : 'none';
     gallery.style.transform = `translateX(${translateX}px)`;
 }
 
 function nextSlide() {
     if (isTransitioning) return;
-    isTransitioning = true;
     
     const gallery = document.getElementById('gallery-grid');
-    const totalItems = gallery.querySelectorAll('.gallery-item:not(.clone)').length;
+    const items = gallery.querySelectorAll('.gallery-item:not(.clone)');
+    const totalItems = items.length;
     const itemsPerView = getItemsPerView();
     
+    // Don't slide if we have fewer items than view
+    if (totalItems <= itemsPerView) return;
+    
+    isTransitioning = true;
     currentSlide++;
     updateGalleryPosition(true);
     
-    // Check if we've reached the cloned items at the end
     if (currentSlide >= totalItems + itemsPerView) {
         setTimeout(() => {
             currentSlide = itemsPerView;
@@ -312,16 +315,19 @@ function nextSlide() {
 
 function previousSlide() {
     if (isTransitioning) return;
-    isTransitioning = true;
     
     const gallery = document.getElementById('gallery-grid');
-    const totalItems = gallery.querySelectorAll('.gallery-item:not(.clone)').length;
+    const items = gallery.querySelectorAll('.gallery-item:not(.clone)');
+    const totalItems = items.length;
     const itemsPerView = getItemsPerView();
     
+    // Don't slide if we have fewer items than view
+    if (totalItems <= itemsPerView) return;
+    
+    isTransitioning = true;
     currentSlide--;
     updateGalleryPosition(true);
     
-    // Check if we've reached the cloned items at the beginning
     if (currentSlide < itemsPerView) {
         setTimeout(() => {
             currentSlide = totalItems + itemsPerView - 1;
@@ -335,46 +341,19 @@ function previousSlide() {
     }
 }
 
-// Handle window resize
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('gallery-grid')) {
+        setTimeout(setupGallery, 100);
+    }
+});
+
+// Handle resize
 let resizeTimer;
 window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-        setupGallery();
-    }, 250);
+    resizeTimer = setTimeout(setupGallery, 250);
 });
-
-// Initialize gallery when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    if (document.getElementById('gallery-grid')) {
-        setTimeout(() => {
-            setupGallery();
-        }, 100);
-    }
-});
-
-// Add touch/swipe functionality for mobile
-let startX = 0;
-let endX = 0;
-
-document.addEventListener('touchstart', e => {
-    startX = e.changedTouches[0].screenX;
-});
-
-document.addEventListener('touchend', e => {
-    endX = e.changedTouches[0].screenX;
-    handleSwipe();
-});
-
-function handleSwipe() {
-    const swipeThreshold = 50;
-    if (startX - endX > swipeThreshold) {
-        nextSlide();
-    }
-    if (endX - startX > swipeThreshold) {
-        previousSlide();
-    }
-}
 
 // Ensure about section alignment
 window.addEventListener('load', function() {
