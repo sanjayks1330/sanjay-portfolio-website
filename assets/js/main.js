@@ -390,73 +390,89 @@ window.addEventListener('resize', function() {
     }
 });
 
-// Handle form submission without redirect - FINAL VERSION
-(function() {
-    'use strict';
-    
-    document.addEventListener('DOMContentLoaded', function() {
+// Handle form submission without redirect
+document.addEventListener('DOMContentLoaded', function() {
+    // Wait for other scripts to load
+    setTimeout(function() {
         const form = document.querySelector('.php-email-form');
         if (!form) return;
         
-        // Remove any existing listeners
-        const newForm = form.cloneNode(true);
-        form.parentNode.replaceChild(newForm, form);
+        // Flag to prevent double submission
+        let isSubmitting = false;
         
-        newForm.addEventListener('submit', function(e) {
+        // Override any existing submit handlers
+        form.onsubmit = null;
+        
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
             e.stopPropagation();
+            e.stopImmediatePropagation();
             
-            const loadingEl = this.querySelector('.loading');
-            const errorEl = this.querySelector('.error-message');
-            const sentEl = this.querySelector('.sent-message');
+            // Prevent double submission
+            if (isSubmitting) return false;
+            isSubmitting = true;
+            
+            const loadingEl = form.querySelector('.loading');
+            const errorEl = form.querySelector('.error-message');
+            const sentEl = form.querySelector('.sent-message');
             
             // Show loading
-            loadingEl.style.display = 'block';
-            errorEl.style.display = 'none';
-            sentEl.style.display = 'none';
+            if (loadingEl) loadingEl.style.display = 'block';
+            if (errorEl) errorEl.style.display = 'none';
+            if (sentEl) sentEl.style.display = 'none';
             
             // Get form data
-            const formData = new FormData(this);
-            const object = {};
+            const formData = new FormData(form);
+            const data = {};
             formData.forEach((value, key) => {
-                object[key] = value;
+                data[key] = value;
             });
             
-            // Submit form
+            // Submit to Web3Forms
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                body: JSON.stringify(object)
+                body: JSON.stringify(data)
             })
             .then(response => response.json())
-            .then(data => {
-                loadingEl.style.display = 'none';
+            .then(result => {
+                if (loadingEl) loadingEl.style.display = 'none';
                 
-                if (data.success) {
-                    // Show success
-                    sentEl.style.display = 'block';
-                    newForm.reset();
+                if (result.success) {
+                    // Show success message
+                    if (sentEl) {
+                        sentEl.style.display = 'block';
+                        sentEl.textContent = 'Your message has been sent. Thank you!';
+                    }
+                    form.reset();
                     
                     // Hide after 5 seconds
                     setTimeout(() => {
-                        sentEl.style.display = 'none';
+                        if (sentEl) sentEl.style.display = 'none';
+                        isSubmitting = false;
                     }, 5000);
                 } else {
                     // Show error
-                    errorEl.style.display = 'block';
-                    errorEl.textContent = 'Something went wrong!';
+                    if (errorEl) {
+                        errorEl.style.display = 'block';
+                        errorEl.textContent = 'Failed to send message. Please try again.';
+                    }
+                    isSubmitting = false;
                 }
             })
             .catch(error => {
-                loadingEl.style.display = 'none';
-                errorEl.style.display = 'block';
-                errorEl.textContent = 'Network error. Please try again.';
+                if (loadingEl) loadingEl.style.display = 'none';
+                if (errorEl) {
+                    errorEl.style.display = 'block';
+                    errorEl.textContent = 'Network error. Please check your connection.';
+                }
+                isSubmitting = false;
             });
             
             return false;
-        });
-    });
-})();
+        }, true); // Use capture phase to ensure our handler runs first
+    }, 1000); // Wait 1 second for page to fully load
+});
