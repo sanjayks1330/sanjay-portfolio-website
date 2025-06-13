@@ -594,10 +594,14 @@
         <label for="name-field" class="pb-2">Your Name</label>
         <input type="text" name="name" id="name-field" class="form-control" required="">
       </div>
+
       <div class="col-md-6">
-        <label for="email-field" class="pb-2">Your Email</label>
-        <input type="email" class="form-control" name="email" id="email-field" required="">
-      </div>
+    <label for="email-field" class="pb-2">Your Email</label>
+    <input type="email" class="form-control" name="email" id="email-field" required="" 
+           pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" 
+           title="Please enter a valid email address (e.g., name@example.com)">
+    </div>
+    
       <div class="col-md-12">
         <label for="subject-field" class="pb-2">Subject</label>
         <input type="text" class="form-control" name="subject" id="subject-field" required="">

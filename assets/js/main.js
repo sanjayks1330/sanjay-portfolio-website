@@ -400,27 +400,42 @@ document.addEventListener('DOMContentLoaded', function() {
         // Flag to prevent double submission
         let isSubmitting = false;
         
-        // Email validation function
+        // Email validation function - IMPROVED VERSION
         function isValidEmail(email) {
-            // More strict email regex
+            // More comprehensive email validation
             const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             
-            // Additional checks
             if (!emailRegex.test(email)) return false;
             
-            // Check for common incomplete domains
-            const domain = email.split('@')[1];
-            if (!domain) return false;
+            // Split email into parts
+            const parts = email.split('@');
+            if (parts.length !== 2) return false;
             
-            // Must have at least one dot after @
-            if (!domain.includes('.')) return false;
-            
-            // Check minimum domain length (e.g., a.co)
+            const domain = parts[1];
             const domainParts = domain.split('.');
-            const tld = domainParts[domainParts.length - 1];
             
-            // TLD must be at least 2 characters
+            // Must have at least domain.tld
+            if (domainParts.length < 2) return false;
+            
+            // Check each domain part
+            for (let part of domainParts) {
+                if (part.length === 0) return false;
+            }
+            
+            // Last part (TLD) must be at least 2 chars
+            const tld = domainParts[domainParts.length - 1];
             if (tld.length < 2) return false;
+            
+            // Common typo detection
+            const commonDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com'];
+            const domainLower = domain.toLowerCase();
+            
+            // Check for incomplete common domains
+            if (domainLower === 'gmail' || domainLower === 'yahoo' || 
+                domainLower === 'hotmail' || domainLower === 'outlook' ||
+                domainLower === 'gma' || domainLower === 'out') {
+                return false;
+            }
             
             return true;
         }
@@ -460,6 +475,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Focus on email field
                 emailInput.focus();
+                emailInput.style.borderColor = '#dc3545';
                 return false;
             }
             
@@ -473,6 +489,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (loadingEl) loadingEl.style.display = 'block';
             if (errorEl) errorEl.style.display = 'none';
             if (sentEl) sentEl.style.display = 'none';
+            
+            // Reset email field border
+            if (emailInput) emailInput.style.borderColor = '';
             
             // Get form data
             const formData = new FormData(this);
@@ -538,13 +557,26 @@ document.addEventListener('DOMContentLoaded', function() {
                     this.style.borderColor = '#dc3545';
                     if (errorEl) {
                         errorEl.style.display = 'block';
-                        errorEl.textContent = 'Please enter a valid email address';
+                        errorEl.textContent = 'Please enter a valid email address (e.g., name@example.com)';
+                        setTimeout(() => {
+                            if (errorEl.textContent === 'Please enter a valid email address (e.g., name@example.com)') {
+                                errorEl.style.display = 'none';
+                            }
+                        }, 5000);
                     }
                 } else {
                     this.style.borderColor = '';
-                    if (errorEl && errorEl.textContent === 'Please enter a valid email address') {
+                    if (errorEl && errorEl.textContent === 'Please enter a valid email address (e.g., name@example.com)') {
                         errorEl.style.display = 'none';
                     }
+                }
+            });
+            
+            // Clear error on focus
+            emailField.addEventListener('focus', function() {
+                const errorEl = newForm.querySelector('.error-message');
+                if (errorEl && errorEl.textContent === 'Please enter a valid email address (e.g., name@example.com)') {
+                    errorEl.style.display = 'none';
                 }
             });
         }
