@@ -376,3 +376,37 @@ function handleSwipe() {
     }
 }
 
+// Ensure about section alignment
+window.addEventListener('load', function() {
+    const aboutSection = document.querySelector('#about');
+    if (aboutSection) {
+        const img = aboutSection.querySelector('img');
+        const content = aboutSection.querySelector('.content');
+        
+        if (window.innerWidth >= 992 && img && content) {
+            // Set equal heights for desktop view
+            const imgHeight = img.offsetHeight;
+            content.style.minHeight = imgHeight + 'px';
+        }
+    }
+});
+
+// Re-align on window resize
+window.addEventListener('resize', function() {
+    const aboutSection = document.querySelector('#about');
+    if (aboutSection) {
+        const content = aboutSection.querySelector('.content');
+        
+        if (content) {
+            if (window.innerWidth < 992) {
+                content.style.minHeight = 'auto';
+            } else {
+                const img = aboutSection.querySelector('img');
+                if (img) {
+                    const imgHeight = img.offsetHeight;
+                    content.style.minHeight = imgHeight + 'px';
+                }
+            }
+        }
+    }
+});
