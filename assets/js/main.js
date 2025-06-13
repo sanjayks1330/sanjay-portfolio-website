@@ -402,26 +402,36 @@ document.addEventListener('DOMContentLoaded', function() {
             form.querySelector('.error-message').style.display = 'none';
             form.querySelector('.sent-message').style.display = 'none';
             
+            // Create FormData and add redirect prevention
+            const formData = new FormData(form);
+            formData.append('_next', 'false'); // This prevents redirect
+            
             // Submit form data
             fetch(form.action, {
                 method: 'POST',
-                body: new FormData(form),
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
             })
-            .then(response => response.text())
-            .then(data => {
+            .then(response => {
                 // Hide loading
                 form.querySelector('.loading').style.display = 'none';
                 
-                // Show success message
-                form.querySelector('.sent-message').style.display = 'block';
-                
-                // Reset form
-                form.reset();
-                
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    form.querySelector('.sent-message').style.display = 'none';
-                }, 5000);
+                if (response.ok) {
+                    // Show success message
+                    form.querySelector('.sent-message').style.display = 'block';
+                    
+                    // Reset form
+                    form.reset();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        form.querySelector('.sent-message').style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
             })
             .catch(error => {
                 // Hide loading
@@ -429,8 +439,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Show error
                 form.querySelector('.error-message').style.display = 'block';
-                form.querySelector('.error-message').innerHTML = 'Sorry, there was an error sending your message.';
+                form.querySelector('.error-message').innerHTML = 'Sorry, there was an error sending your message. Please try again.';
             });
+            
+            return false; // Extra prevention
         });
     }
 });

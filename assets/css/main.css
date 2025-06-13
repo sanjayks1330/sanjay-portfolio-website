@@ -1510,6 +1510,11 @@ section,
     text-align: center;
     padding: 15px;
     margin-bottom: 20px;
+    color: #333;
+}
+
+.php-email-form .loading:before {
+    content: "Sending message...";
 }
 
 .php-email-form .error-message {
