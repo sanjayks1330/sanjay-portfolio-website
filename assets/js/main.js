@@ -389,3 +389,48 @@ window.addEventListener('resize', function() {
         }
     }
 });
+
+// Handle form submission without redirect
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.php-email-form');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading
+            form.querySelector('.loading').style.display = 'block';
+            form.querySelector('.error-message').style.display = 'none';
+            form.querySelector('.sent-message').style.display = 'none';
+            
+            // Submit form data
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+            })
+            .then(response => response.text())
+            .then(data => {
+                // Hide loading
+                form.querySelector('.loading').style.display = 'none';
+                
+                // Show success message
+                form.querySelector('.sent-message').style.display = 'block';
+                
+                // Reset form
+                form.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    form.querySelector('.sent-message').style.display = 'none';
+                }, 5000);
+            })
+            .catch(error => {
+                // Hide loading
+                form.querySelector('.loading').style.display = 'none';
+                
+                // Show error
+                form.querySelector('.error-message').style.display = 'block';
+                form.querySelector('.error-message').innerHTML = 'Sorry, there was an error sending your message.';
+            });
+        });
+    }
+});
