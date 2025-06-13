@@ -585,7 +585,7 @@
           </div>
 
 <div class="col-lg-7">
-  <form action="https://api.web3forms.com/submit" method="POST" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+  <form action="https://api.web3forms.com/submit" method="POST" class="php-email-form" data-aos="fade-up" data-aos-delay="200" novalidate>
     <!-- Your Web3Forms access key -->
     <input type="hidden" name="access_key" value="aa39813c-de21-46d4-9a67-0aab1b57c1d3">
     
@@ -595,13 +595,12 @@
         <input type="text" name="name" id="name-field" class="form-control" required="">
       </div>
 
-      <div class="col-md-6">
+    <div class="col-md-6">
     <label for="email-field" class="pb-2">Your Email</label>
-    <input type="email" class="form-control" name="email" id="email-field" required="" 
-           pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" 
-           title="Please enter a valid email address (e.g., name@example.com)">
+    <input type="text" class="form-control" name="email" id="email-field" required="" 
+           placeholder="name@example.com">
     </div>
-    
+
       <div class="col-md-12">
         <label for="subject-field" class="pb-2">Subject</label>
         <input type="text" class="form-control" name="subject" id="subject-field" required="">

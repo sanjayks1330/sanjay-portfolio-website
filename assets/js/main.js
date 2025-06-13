@@ -402,43 +402,37 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Email validation function - IMPROVED VERSION
         function isValidEmail(email) {
-            // More comprehensive email validation
-            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            
-            if (!emailRegex.test(email)) return false;
-            
-            // Split email into parts
-            const parts = email.split('@');
-            if (parts.length !== 2) return false;
-            
-            const domain = parts[1];
-            const domainParts = domain.split('.');
-            
-            // Must have at least domain.tld
-            if (domainParts.length < 2) return false;
-            
-            // Check each domain part
-            for (let part of domainParts) {
-                if (part.length === 0) return false;
-            }
-            
-            // Last part (TLD) must be at least 2 chars
-            const tld = domainParts[domainParts.length - 1];
-            if (tld.length < 2) return false;
-            
-            // Common typo detection
-            const commonDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com'];
-            const domainLower = domain.toLowerCase();
-            
-            // Check for incomplete common domains
-            if (domainLower === 'gmail' || domainLower === 'yahoo' || 
-                domainLower === 'hotmail' || domainLower === 'outlook' ||
-                domainLower === 'gma' || domainLower === 'out') {
-                return false;
-            }
-            
-            return true;
-        }
+    // Trim whitespace
+    email = email.trim();
+    
+    // Basic format check
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(email)) return false;
+    
+    // Split and validate parts
+    const [localPart, domain] = email.split('@');
+    if (!localPart || !domain) return false;
+    
+    // Domain must have at least one dot
+    if (!domain.includes('.')) return false;
+    
+    // Get domain parts
+    const domainParts = domain.split('.');
+    const tld = domainParts[domainParts.length - 1];
+    
+    // TLD must be at least 2 characters
+    if (!tld || tld.length < 2) return false;
+    
+    // Check for incomplete domains
+    const invalidDomains = ['gma', 'out', 'hot', 'yah', 'gmail', 'yahoo', 'hotmail', 'outlook'];
+    if (invalidDomains.includes(domain.toLowerCase())) return false;
+    
+    // Domain before TLD must have content
+    const domainName = domainParts[domainParts.length - 2];
+    if (!domainName || domainName.length < 2) return false;
+    
+    return true;
+}
         
         // Override any existing submit handlers
         form.onsubmit = null;
