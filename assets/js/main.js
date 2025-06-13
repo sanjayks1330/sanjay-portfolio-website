@@ -402,23 +402,29 @@ document.addEventListener('DOMContentLoaded', function() {
             form.querySelector('.error-message').style.display = 'none';
             form.querySelector('.sent-message').style.display = 'none';
             
-            // Create FormData and add redirect prevention
+            // Get form data
             const formData = new FormData(form);
-            formData.append('_next', 'false'); // This prevents redirect
+            const object = {};
+            formData.forEach((value, key) => {
+                object[key] = value;
+            });
+            const json = JSON.stringify(object);
             
             // Submit form data
-            fetch(form.action, {
+            fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                body: formData,
                 headers: {
+                    'Content-Type': 'application/json',
                     'Accept': 'application/json'
-                }
+                },
+                body: json
             })
-            .then(response => {
+            .then(response => response.json())
+            .then(data => {
                 // Hide loading
                 form.querySelector('.loading').style.display = 'none';
                 
-                if (response.ok) {
+                if (data.success) {
                     // Show success message
                     form.querySelector('.sent-message').style.display = 'block';
                     
@@ -430,7 +436,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         form.querySelector('.sent-message').style.display = 'none';
                     }, 5000);
                 } else {
-                    throw new Error('Form submission failed');
+                    throw new Error(data.message || 'Something went wrong!');
                 }
             })
             .catch(error => {
@@ -440,9 +446,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Show error
                 form.querySelector('.error-message').style.display = 'block';
                 form.querySelector('.error-message').innerHTML = 'Sorry, there was an error sending your message. Please try again.';
+                
+                // Hide error after 5 seconds
+                setTimeout(() => {
+                    form.querySelector('.error-message').style.display = 'none';
+                }, 5000);
             });
-            
-            return false; // Extra prevention
         });
     }
 });
