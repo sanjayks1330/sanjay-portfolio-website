@@ -390,80 +390,73 @@ window.addEventListener('resize', function() {
     }
 });
 
-// Handle form submission without redirect
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('.php-email-form');
-    if (form) {
-        form.addEventListener('submit', function(e) {
+// Handle form submission without redirect - FINAL VERSION
+(function() {
+    'use strict';
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('.php-email-form');
+        if (!form) return;
+        
+        // Remove any existing listeners
+        const newForm = form.cloneNode(true);
+        form.parentNode.replaceChild(newForm, form);
+        
+        newForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            console.log('Form submitted'); // Debug log
+            e.stopPropagation();
+            
+            const loadingEl = this.querySelector('.loading');
+            const errorEl = this.querySelector('.error-message');
+            const sentEl = this.querySelector('.sent-message');
             
             // Show loading
-            form.querySelector('.loading').style.display = 'block';
-            form.querySelector('.error-message').style.display = 'none';
-            form.querySelector('.sent-message').style.display = 'none';
+            loadingEl.style.display = 'block';
+            errorEl.style.display = 'none';
+            sentEl.style.display = 'none';
             
             // Get form data
-            const formData = new FormData(form);
+            const formData = new FormData(this);
             const object = {};
             formData.forEach((value, key) => {
                 object[key] = value;
             });
-            const json = JSON.stringify(object);
-            console.log('Sending data:', json); // Debug log
             
-            // Submit form data
+            // Submit form
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                body: json
+                body: JSON.stringify(object)
             })
             .then(response => response.json())
             .then(data => {
-                console.log('Response received:', data); // Debug log
+                loadingEl.style.display = 'none';
                 
-                // Hide loading
-                form.querySelector('.loading').style.display = 'none';
-                
-                if (data.success === true) {
-                    console.log('Success! Showing success message'); // Debug log
-                    // Show success message
-                    form.querySelector('.sent-message').style.display = 'block';
+                if (data.success) {
+                    // Show success
+                    sentEl.style.display = 'block';
+                    newForm.reset();
                     
-                    // Reset form
-                    form.reset();
-                    
-                    // Hide success message after 5 seconds
+                    // Hide after 5 seconds
                     setTimeout(() => {
-                        form.querySelector('.sent-message').style.display = 'none';
+                        sentEl.style.display = 'none';
                     }, 5000);
                 } else {
-                    console.log('Failed:', data.message); // Debug log
-                    // Show error if not successful
-                    form.querySelector('.error-message').style.display = 'block';
-                    form.querySelector('.error-message').innerHTML = data.message || 'Sorry, there was an error.';
-                    
-                    setTimeout(() => {
-                        form.querySelector('.error-message').style.display = 'none';
-                    }, 5000);
+                    // Show error
+                    errorEl.style.display = 'block';
+                    errorEl.textContent = 'Something went wrong!';
                 }
             })
             .catch(error => {
-                console.error('Catch error:', error); // Debug log
-                // Hide loading
-                form.querySelector('.loading').style.display = 'none';
-                
-                // Show error
-                form.querySelector('.error-message').style.display = 'block';
-                form.querySelector('.error-message').innerHTML = 'Sorry, there was an error sending your message.';
-                
-                setTimeout(() => {
-                    form.querySelector('.error-message').style.display = 'none';
-                }, 5000);
+                loadingEl.style.display = 'none';
+                errorEl.style.display = 'block';
+                errorEl.textContent = 'Network error. Please try again.';
             });
+            
+            return false;
         });
-    }
-});
+    });
+})();
