@@ -396,6 +396,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
+            console.log('Form submitted'); // Debug log
             
             // Show loading
             form.querySelector('.loading').style.display = 'block';
@@ -409,6 +410,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 object[key] = value;
             });
             const json = JSON.stringify(object);
+            console.log('Sending data:', json); // Debug log
             
             // Submit form data
             fetch('https://api.web3forms.com/submit', {
@@ -421,10 +423,13 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(response => response.json())
             .then(data => {
+                console.log('Response received:', data); // Debug log
+                
                 // Hide loading
                 form.querySelector('.loading').style.display = 'none';
                 
-                if (data.success === true) {  // Check for success
+                if (data.success === true) {
+                    console.log('Success! Showing success message'); // Debug log
                     // Show success message
                     form.querySelector('.sent-message').style.display = 'block';
                     
@@ -436,6 +441,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         form.querySelector('.sent-message').style.display = 'none';
                     }, 5000);
                 } else {
+                    console.log('Failed:', data.message); // Debug log
                     // Show error if not successful
                     form.querySelector('.error-message').style.display = 'block';
                     form.querySelector('.error-message').innerHTML = data.message || 'Sorry, there was an error.';
@@ -446,6 +452,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             })
             .catch(error => {
+                console.error('Catch error:', error); // Debug log
                 // Hide loading
                 form.querySelector('.loading').style.display = 'none';
                 
