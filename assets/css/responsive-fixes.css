@@ -1,0 +1,25 @@
+/*
+ * Responsive Fixes
+ * This file contains custom media queries to fix layout issues on smaller screens.
+ */
+
+/* --- Fix for the gap in the profile section on mobile --- */
+@media (max-width: 991.98px) {
+  
+  /* Selects the specific .row that contains your profile image and text.
+    This rule will only apply on screens smaller than 992px.
+  */
+  .about .row.justify-content-center {
+    /* THE NEW FIX:
+      When flex items wrap into multiple lines (like your image and text do on mobile),
+      'align-content' controls the space between those lines. Setting it to 
+      'flex-start' packs the lines at the top of the container, removing the gap.
+    */
+    align-content: flex-start !important;
+    
+    /* Let's still keep the height reset as a fallback. */
+    height: auto !important;
+    min-height: unset !important;
+  }
+
+}

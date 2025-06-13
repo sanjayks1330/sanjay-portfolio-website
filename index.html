@@ -26,6 +26,8 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <!-- Responsive CSS File -->
+  <link href="assets/css/responsive-fixes.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: iPortfolio
@@ -66,7 +68,6 @@
         <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
         <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
         <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-        
         <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
     </nav>
@@ -82,54 +83,58 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <h2>Hello, I'm Sanjay.</h2>
-        <p>I'm <span class="typed" data-typed-items="a Google Certified Engineer,an IT Support Engineer,an IT Support Specialist,a Freelancer">Also an Acting Project Manager</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+        <p>I'm <span class="typed" data-typed-items="a Google Certified Engineer,an IT Support Engineer,an IT Support Specialist">Freelancer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
       </div>
 
     </section><!-- /Hero Section -->
 
-    <!-- About Section -->
-<section id="about" class="about section">
-
-  <div class="container section-title" data-aos="fade-up">
-    <h2>About Me</h2>
-  </div><div class="container" data-aos="fade-up" data-aos-delay="100">
-
-    <div class="row gy-4 align-items-start">
-      <div class="col-lg-4">
-        <img src="assets/img/my-profile-img.jpg" class="img-fluid" alt="A profile picture of the site owner">
-      </div>
-
-      <div class="col-lg-8 content">
-        
     
+    <!-- About Section -->
+    <section id="about" class="about section">
 
-        <p>
-          My journey into the world of data began with a powerful conviction: the belief that insights derived from data can fundamentally transform understanding and drive impactful solutions. As I pursued my MSc in Data Science at Ulster University, I became fascinated by how machine learning, statistical modeling, and robust data visualization could reveal patterns and unlock new possibilities.
-        </p>
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>About Me</h2>
+    <!-- Deleted a paragrapgh -->
+      </div><!-- End Section Title -->
 
-        <p>
-          During my academic endeavors, I led a significant project, "An Influential Stock Market Paradigm based on LSTM Modeling and Sequencing." Here, I applied LSTM models to analyze stock market time-series data, predicting new attributes and rigorously evaluating results using Google Colab and Python. This experience honed my coding skills and solidified my practical understanding of data analysis, machine learning libraries, databases, and SQL, complemented by front-end knowledge in JavaScript, HTML5, and CSS3.
-        </p>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <p>
-          Currently, as an IT Support Engineer, I leverage my analytical mindset daily to solve real-world problems. This role provides invaluable hands-on experience in understanding complex systems and troubleshooting technical challenges, reinforcing the importance of data-driven problem-solving. My background in data science enables me to approach IT issues with a systematic perspective, always seeking not just to fix, but to understand underlying patterns and improve processes.
-        </p>
+        <div class="row gy-4 justify-content-center">
+          <div class="col-lg-4">
+            <img src="assets/img/my-profile-img.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 content">
+            <p class="fst-italic py-3">
+              My journey into the world of data began with a powerful conviction: the belief that insights derived from data can fundamentally transform understanding and drive impactful solutions. As I pursued my MSc in Data Science at Ulster University, I became fascinated by how machine learning, statistical modeling, and robust data visualization could reveal patterns and unlock new possibilities.
+            </p>
+              <p class="fst-italic py-3">During my academic endeavors, I led a significant project, "An Influential Stock Market Paradigm based on LSTM Modeling and Sequencing." Here, I applied LSTM models to analyze stock market time-series data, predicting new attributes and rigorously evaluating results using Google Colab and Python. This experience honed my coding skills and solidified my practical understanding of data analysis, machine learning libraries, databases, and SQL, complemented by front-end knowledge in JavaScript, HTML5, and CSS3.</p>
 
-        <h3>Outside of Professional Pursuits</h3>
-        <p>
-          Football has been a significant part of my life, having played at both state and district levels in India for over a decade and serving as captain of my University College team, which taught me invaluable lessons about leadership and resilience. Beyond the pitch, I find joy in traveling, socializing, and embracing new adventures. I am eager to combine my strong foundation in data science with practical IT expertise to drive innovation and create real impact.
-        </p>
+              Currently, as an IT Support Engineer, I leverage my analytical mindset daily to solve real-world problems. This role provides invaluable hands-on experience in understanding complex systems and troubleshooting technical challenges, reinforcing the importance of data-driven problem-solving. My background in data science enables me to approach IT issues with a systematic perspective, always seeking not just to fix, but to understand underlying patterns and improve processes.
+
+          <div class="fst-italic py-3"> <h5> Outside of Professional Pursuits</h5>
+          Football has been a significant part of my life, having played at both state and district levels in India for over a decade and serving as captain of my University College team, which taught me invaluable lessons about leadership and resilience. Beyond the pitch, I find joy in traveling, socializing, and embracing new adventures. I am eager to combine my strong foundation in data science with practical IT expertise to drive innovation and create real impact.</div>
+
+            <div class="row">
+              <div class="col-lg-6">
+              </div>
+              <div class="col-lg-6">
+
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
-    </div>
-
-  </div>
-
-</section>
 
     </section><!-- /About Section -->
 
 
+        </div>
+
+      </div>
+
+    </section><!-- /Stats Section -->
 
     <!-- Skills Section -->
     <section id="skills" class="skills section light-background">
@@ -156,7 +161,7 @@
             <div class="progress">
               <span class="skill"><span>Azure AD & Intune</span> <i class="val">95%</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div><!-- End Skills Item -->
 
@@ -173,20 +178,12 @@
                 <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div><!-- End Skills Item -->
-
           </div>
 
           <div class="col-lg-6">
 
             <div class="progress">
-              <span class="skill"><span>PHP</span> <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>SQL</span> <i class="val">80%</i></span>
+              <span class="skill"><span>PHP</span> <i class="val">80%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
@@ -196,6 +193,13 @@
               <span class="skill"><span>WordPress/CMS</span> <i class="val">70%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+
+            <div class="progress">
+              <span class="skill"><span>SQL</span> <i class="val">75%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div><!-- End Skills Item -->
 
@@ -237,23 +241,22 @@
                 <li>Google IT Support Professional Certificate</li>
                 <li>Google Workspace Admin Fundamentals</li>
                 <li>Google Cloud Digital Leader</li>
-                <li>Advanced Premium IT Admin Features</li>
-              </ul>
+                <li>Foundations Of Project Management</li>              </ul>
             </div><!-- Edn Resume Item -->
 
             <h3 class="resume-title">Education</h3>
             <div class="resume-item">
               <h4>Msc &amp; Data Science</h4>
-              <h5>2022</h5>
+              <h5>2021 - 2022</h5>
               <p><em>Ulster University, Belfast, Northern Ireland</em></p>
-
+              <p>Relevant Coursework: Big data, Machine Learning, Data Validation and Visualisation, Data Science Foundation, Business Intelligence & Statistical Modelling.</p>
             </div><!-- Edn Resume Item -->
 
             <div class="resume-item">
               <h4>Bachelor of Engineering &amp; Computer Science</h4>
-              <h5>2016</h5>
+              <h5>2012 - 2016</h5>
               <p><em>Anna University, Tamil Nadu, India</em></p>
-             
+              <p>Relevant Coursework: Project Management- Software Development Lifecycle (SDLC), Management Information Systems, Software Architecture.</p>
             </div><!-- Edn Resume Item -->
 
           </div>
@@ -261,15 +264,14 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <h3 class="resume-title">Professional Experience</h3>
             <div class="resume-item">
-              <h4>IT Support Engineer / Acting Project Manager</h4>
+              <h4>IT Support Engineer</h4>
               <h5>2022 - Present</h5>
               <p><em>Shared Technology Services, London, United Kingdom </em></p>
               <ul>
                 <li>Supported and coordinated large-scale digital transformation initiatives across four London councils, including the migration of 3,000+ users to cloud productivity platforms and the deployment of 4,000 Windows 11 laptops.</li>
                 <li>Acted as the primary contact for de-escalating user concerns, successfully managing sensitive communications and maintaining an estimated 95% positive user satisfaction rate.</li>
                 <li>Mentored junior technicians on shared service protocols, improving their ticket resolution efficiency for council-related issues by an estimated 15%.</li>
-                <li>Acted as a project lead for key initiatives: attended stakeholder meetings, deployed field engineers, tracked risks, and ensured secure project delivery aligned with organizational goals and compliance standards.</li>
-              </ul>
+                <li>Acted as a project lead for key initiatives: attended stakeholder meetings, deployed field engineers, tracked risks, and ensured secure project delivery aligned with organizational goals and compliance standards.</li>              </ul>
             </div><!-- Edn Resume Item -->
 
             <div class="resume-item">
@@ -279,7 +281,8 @@
               <ul>
                 <li>Provided L2 technical support to 500 users, resolving access and connectivity issues and achieving a 15% improvement in average ticket resolution time.</li>
                 <li>Developed internal documentation for incident resolution that was adopted by the support team and led to a 25% reduction in escalations for common issues.</li>
-                <li>Acted as the primary contact for de-escalating user concerns, successfully managing sensitive communications and maintaining an estimated 95% positive user satisfaction rate. </li>
+                <li>Acted as the primary contact for de-escalating user concerns, successfully managing sensitive communications and maintaining an estimated 95% positive user satisfaction rate. 
+                </li>
         
               </ul>
             </div><!-- Edn Resume Item -->
@@ -290,15 +293,7 @@
 
       </div>
 
-    </section><!-- /Resume Section -->
-
-      </div></div>
-
-      </div>
-
-    </div>
-
-    <div class="text-center" style="padding-top: 30px;" data-aos="fade-up">
+          <div class="text-center" style="padding-top: 30px;" data-aos="fade-up">
       <p>For the full version of my resume, please click below to download.</p>
       <a href="assets/Your_Resume_File.pdf" 
    class="btn" 
@@ -308,8 +303,7 @@
 </a>
     </div>
 
-</section><section id="portfolio" class="portfolio section light-background">
-
+    </section><!-- /Resume Section -->
 
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio section light-background">
@@ -330,7 +324,6 @@
             <li data-filter=".filter-product">Administration</li>
             <li data-filter=".filter-branding">Infrastructure</li>
             <li data-filter=".filter-books">Operations</li>
-
           </ul><!-- End Portfolio Filters -->
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
@@ -341,7 +334,7 @@
                 <div class="portfolio-info">
                   <h4>Cloud IAM & Endpoint Security Project</h4>
                   <p>Designed multi-layered security using GCP IAM and device compliance rules.</p>
-                  <a href="assets/img/portfolio/app-1.jpg" title="Cloud IAM & Endpoint Security Project" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="assets/img/portfolio/app-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="iam-security-project.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
@@ -353,12 +346,11 @@
                 <div class="portfolio-info">
                   <h4>Google Workspace Admin Project</h4>
                   <p>Configured a secure, automated Google Workspace environment for a business.</p>
-                  <a href="assets/img/portfolio/product-1.jpg" title="Google Workspace Admin Project" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="assets/img/portfolio/product-1.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="workspace-admin-project.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
-
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
               <div class="portfolio-content h-100">
@@ -366,20 +358,18 @@
                 <div class="portfolio-info">
                   <h4>GCP Application Migration & IAM Security Project</h4>
                   <p>Deployed a containerized Python application on GCP with secure IAM.</p>
-                  <a href="assets/img/portfolio/branding-1.jpg" title="GCP Application Migration & IAM Security Project" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="assets/img/portfolio/branding-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="gcp-migration-project.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
-
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
               <div class="portfolio-content h-100">
                 <img src="assets/img/portfolio/books-1.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Incident Response Runbook</h4>
-                  <p>Simulated a phishing incident response, creating a detailed runbook.</p>
-                  <a href="assets/img/portfolio/books-1.jpg" title="Incident Response Runbook" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <p>Simulated a phishing incident response, creating a detailed runbook.</p>                  <a href="assets/img/portfolio/books-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="incident-response-project.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
@@ -399,8 +389,7 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <h2>Certifications</h2>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -408,51 +397,55 @@
         <div class="row gy-4">
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
+            <!-- Start Icon Title -->
+            <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=workspace_premium" rel="stylesheet">
+            <div class="icon flex-shrink-0">
+                <span class="material-symbols-outlined">workspace_premium</span>
+            </div>
+            <!-- End Icon Title -->
             <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Lorem Ipsum</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+              <h4 class="title"><a href="service-details.html" class="stretched-link">Google IT Support Professional</a></h4>
+              <p class="description">This certification from Google via Coursera strengthened my skills in troubleshooting, networking, OS, system administration, and IT support with hands-on, real-world technical training.</p>
             </div>
           </div>
           <!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
+            <!-- Start Icon Title -->
+            <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+              <div class="icon flex-shrink-0">
+                 <span class="material-symbols-outlined">military_tech</span>
+            </div>
+          <!-- End Icon Title -->
             <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Dolor Sitema</a></h4>
-              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+              <h4 class="title"><a href="service-details.html" class="stretched-link">Google Cloud Digital Leader</a></h4>
+              <p class="description">This certification from Google via Coursera demonstrates foundational knowledge of cloud technologies, GCP services, and digital transformation to support informed business and technical decisions.</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
+           <!-- Start Icon Title -->
+                <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+            <div class="icon flex-shrink-0">
+              <span class="material-symbols-outlined">verified</span>
+          </div>            
+            <!-- End Icon Title -->
             <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Sed ut perspiciatis</a></h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+              <h4 class="title"><a href="service-details.html" class="stretched-link">Workspace Admin Fundamentals</a></h4>
+              <p class="description">This certification from Google via Coursera covered Workspace Admin fundamentals, including user management, organizational units, security settings, group policies, and best practices for cloud collaboration.</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon flex-shrink-0"><i class="bi bi-binoculars"></i></div>
+            <!-- Start Icon Title -->
+            <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+          <div class="icon flex-shrink-0">
+              <span class="material-symbols-outlined">award_star</span>
+          </div>
+            <!-- End Icon Title -->
             <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Magni Dolores</a></h4>
-              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Nemo Enim</a></h4>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
-            <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Eiusmod Tempor</a></h4>
-              <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+              <h4 class="title"><a href="service-details.html" class="stretched-link">Foundations of Project Management</a></h4>
+              <p class="description">This certification from Google via Coursera introduced core project management concepts, including project lifecycles, stakeholder communication, risk management, and tools to effectively lead successful projects.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -666,14 +659,14 @@
 
     <div class="container">
       <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">iPortfolio</strong> <span>All Rights Reserved</span></p>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Sanjay</strong> <span>All Rights Reserved</span></p>
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="https://bootstrapmade.com/">Sanjay Krishnan</a>
       </div>
     </div>
 
