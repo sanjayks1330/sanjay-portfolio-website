@@ -397,8 +397,33 @@ document.addEventListener('DOMContentLoaded', function() {
         const form = document.querySelector('.php-email-form');
         if (!form) return;
         
-        // Flag to prevent double submission - declare outside
+        // Flag to prevent double submission
         let isSubmitting = false;
+        
+        // Email validation function
+        function isValidEmail(email) {
+            // More strict email regex
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            
+            // Additional checks
+            if (!emailRegex.test(email)) return false;
+            
+            // Check for common incomplete domains
+            const domain = email.split('@')[1];
+            if (!domain) return false;
+            
+            // Must have at least one dot after @
+            if (!domain.includes('.')) return false;
+            
+            // Check minimum domain length (e.g., a.co)
+            const domainParts = domain.split('.');
+            const tld = domainParts[domainParts.length - 1];
+            
+            // TLD must be at least 2 characters
+            if (tld.length < 2) return false;
+            
+            return true;
+        }
         
         // Override any existing submit handlers
         form.onsubmit = null;
@@ -418,11 +443,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 return false;
             }
             
+            const emailInput = this.querySelector('input[type="email"]');
+            const errorEl = this.querySelector('.error-message');
+            
+            // Validate email
+            if (emailInput && !isValidEmail(emailInput.value)) {
+                if (errorEl) {
+                    errorEl.style.display = 'block';
+                    errorEl.textContent = 'Please enter a valid email address (e.g., name@example.com)';
+                    
+                    // Hide error after 5 seconds
+                    setTimeout(() => {
+                        errorEl.style.display = 'none';
+                    }, 5000);
+                }
+                
+                // Focus on email field
+                emailInput.focus();
+                return false;
+            }
+            
             isSubmitting = true;
             console.log('Submitting form...');
             
             const loadingEl = this.querySelector('.loading');
-            const errorEl = this.querySelector('.error-message');
             const sentEl = this.querySelector('.sent-message');
             
             // Show loading
@@ -484,5 +528,25 @@ document.addEventListener('DOMContentLoaded', function() {
             
             return false;
         });
-    }, 1000); // Wait 1 second for page to fully load
+        
+        // Also add real-time validation on email field
+        const emailField = newForm.querySelector('input[type="email"]');
+        if (emailField) {
+            emailField.addEventListener('blur', function() {
+                const errorEl = newForm.querySelector('.error-message');
+                if (this.value && !isValidEmail(this.value)) {
+                    this.style.borderColor = '#dc3545';
+                    if (errorEl) {
+                        errorEl.style.display = 'block';
+                        errorEl.textContent = 'Please enter a valid email address';
+                    }
+                } else {
+                    this.style.borderColor = '';
+                    if (errorEl && errorEl.textContent === 'Please enter a valid email address') {
+                        errorEl.style.display = 'none';
+                    }
+                }
+            });
+        }
+    }, 1000);
 });
