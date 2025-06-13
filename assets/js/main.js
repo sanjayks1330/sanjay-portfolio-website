@@ -247,16 +247,16 @@ function setupGallery() {
     const totalItems = items.length;
     const itemsPerView = getItemsPerView();
     
-    // Clear any existing clones first
-    gallery.querySelectorAll('.clone').forEach(clone => clone.remove());
-    
     // Only clone if we have more items than items per view
     if (totalItems > itemsPerView) {
+        // Clear any existing clones
+        gallery.querySelectorAll('.clone').forEach(clone => clone.remove());
+        
         // Clone last items to beginning
         for (let i = Math.max(0, totalItems - itemsPerView); i < totalItems; i++) {
             const clone = items[i].cloneNode(true);
             clone.classList.add('clone');
-            gallery.insertBefore(clone, gallery.firstChild);
+            gallery.insertBefore(clone, items[0]);
         }
         
         // Clone first items to end
