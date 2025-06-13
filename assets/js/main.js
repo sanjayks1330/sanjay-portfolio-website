@@ -397,24 +397,33 @@ document.addEventListener('DOMContentLoaded', function() {
         const form = document.querySelector('.php-email-form');
         if (!form) return;
         
-        // Flag to prevent double submission
+        // Flag to prevent double submission - declare outside
         let isSubmitting = false;
         
         // Override any existing submit handlers
         form.onsubmit = null;
         
-        form.addEventListener('submit', function(e) {
+        // Remove all existing event listeners by cloning
+        const newForm = form.cloneNode(true);
+        form.parentNode.replaceChild(newForm, form);
+        
+        newForm.addEventListener('submit', function(e) {
             e.preventDefault();
             e.stopPropagation();
             e.stopImmediatePropagation();
             
             // Prevent double submission
-            if (isSubmitting) return false;
-            isSubmitting = true;
+            if (isSubmitting) {
+                console.log('Already submitting, blocked');
+                return false;
+            }
             
-            const loadingEl = form.querySelector('.loading');
-            const errorEl = form.querySelector('.error-message');
-            const sentEl = form.querySelector('.sent-message');
+            isSubmitting = true;
+            console.log('Submitting form...');
+            
+            const loadingEl = this.querySelector('.loading');
+            const errorEl = this.querySelector('.error-message');
+            const sentEl = this.querySelector('.sent-message');
             
             // Show loading
             if (loadingEl) loadingEl.style.display = 'block';
@@ -422,7 +431,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (sentEl) sentEl.style.display = 'none';
             
             // Get form data
-            const formData = new FormData(form);
+            const formData = new FormData(this);
             const data = {};
             formData.forEach((value, key) => {
                 data[key] = value;
@@ -447,9 +456,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         sentEl.style.display = 'block';
                         sentEl.textContent = 'Your message has been sent. Thank you!';
                     }
-                    form.reset();
+                    this.reset();
                     
-                    // Hide after 5 seconds
+                    // Hide after 5 seconds and reset flag
                     setTimeout(() => {
                         if (sentEl) sentEl.style.display = 'none';
                         isSubmitting = false;
@@ -464,6 +473,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             })
             .catch(error => {
+                console.error('Submit error:', error);
                 if (loadingEl) loadingEl.style.display = 'none';
                 if (errorEl) {
                     errorEl.style.display = 'block';
@@ -473,6 +483,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             return false;
-        }, true); // Use capture phase to ensure our handler runs first
+        });
     }, 1000); // Wait 1 second for page to fully load
 });
