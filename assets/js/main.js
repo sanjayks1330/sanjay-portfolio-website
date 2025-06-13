@@ -424,7 +424,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Hide loading
                 form.querySelector('.loading').style.display = 'none';
                 
-                if (data.success) {
+                if (data.success === true) {  // Check for success
                     // Show success message
                     form.querySelector('.sent-message').style.display = 'block';
                     
@@ -436,7 +436,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         form.querySelector('.sent-message').style.display = 'none';
                     }, 5000);
                 } else {
-                    throw new Error(data.message || 'Something went wrong!');
+                    // Show error if not successful
+                    form.querySelector('.error-message').style.display = 'block';
+                    form.querySelector('.error-message').innerHTML = data.message || 'Sorry, there was an error.';
+                    
+                    setTimeout(() => {
+                        form.querySelector('.error-message').style.display = 'none';
+                    }, 5000);
                 }
             })
             .catch(error => {
@@ -445,9 +451,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Show error
                 form.querySelector('.error-message').style.display = 'block';
-                form.querySelector('.error-message').innerHTML = 'Sorry, there was an error sending your message. Please try again.';
+                form.querySelector('.error-message').innerHTML = 'Sorry, there was an error sending your message.';
                 
-                // Hide error after 5 seconds
                 setTimeout(() => {
                     form.querySelector('.error-message').style.display = 'none';
                 }, 5000);
