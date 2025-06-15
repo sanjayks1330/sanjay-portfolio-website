@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Project Details - LSTM-Powered Stock Market</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
+<link rel="manifest" href="assets/img/site.webmanifest">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: iPortfolio
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Updated: Jun 29 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="service-details-page">
+
+  <header id="header" class="header dark-background d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="profile-img">
+      <img src="assets/img/my-profile1-img.jpg" alt="" class="img-fluid rounded-circle">
+    </div>
+
+    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="assets/img/logo.png" alt=""> -->
+      <h1 class="sitename">Sanjay Krishnan</h1>
+    </a>
+
+    <div class="social-links text-center">
+      <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
+      <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+      <ul>
+        <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+        <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+        <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
+        <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Certifications</a></li>
+        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+      </ul>
+
+    </nav>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">LSTM-Powered Stock Market</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Project Details</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- ======= Project Details Section ======= -->
+    <section id="service-details" class="service-details section">
+      <div class="container">
+        <div class="row gy-4">
+
+          <!-- Left Column: Navigation Menu -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <ul class="services-list nav nav-tabs flex-column" role="tablist">
+              <li class="nav-item" role="presentation">
+                <a class="nav-link active" data-bs-toggle="tab" href="#stock-overview" role="tab" aria-selected="true">Project Overview</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" href="#stock-analysis" role="tab" aria-selected="false">Analysis & Design</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" href="#stock-methodology" role="tab" aria-selected="false">Methodology</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" href="#stock-results" role="tab" aria-selected="false">Results & Conclusion</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right Column: Tab Content -->
+          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+            <div class="tab-content">
+
+              <!-- Overview Content Pane -->
+              <div class="tab-pane fade show active" id="stock-overview" role="tabpanel">
+                <h3>Introduction</h3>
+                <p>
+                  This project presents an influential paradigm for stock market forecasting by leveraging a Long Short-Term Memory (LSTM) neural network. The primary goal is to build and evaluate a model that can accurately predict future 'Open' and 'Close' prices based on historical stock data, showcasing a complete data science workflow.
+                </p>
+                <h3>Problem Statement</h3>
+                <p>
+                  The core challenge in financial forecasting is that stock prices are influenced by a multitude of complex factors, making their movements difficult to predict with traditional statistical methods that fail to capture long-term dependencies. This project addresses this by employing an LSTM model to recognize and learn from long-range patterns.
+                </p>
+                <h3>Key Objectives</h3>
+                <ul>
+                  <li><i class="bi bi-check-circle"></i> <span>Prepare and analyze a historical stock market dataset.</span></li>
+                  <li><i class="bi bi-check-circle"></i> <span>Normalize and transform the time-series data into sequences for model training.</span></li>
+                  <li><i class="bi bi-check-circle"></i> <span>Build and train a sequential LSTM model using Keras over 80 epochs.</span></li>
+                  <li><i class="bi bi-check-circle"></i> <span>Evaluate the model's performance using Mean Absolute Error (MAE) and forecast future stock prices.</span></li>
+                </ul>
+              </div><!-- End Overview Content-->
+
+              <!-- Analysis & Design Content Pane -->
+              <div class="tab-pane fade" id="stock-analysis" role="tabpanel">
+
+                <h3>Project Analysis</h3>
+                <p>
+                  This project's approach is rooted in the strengths of deep learning for time-series analysis. LSTMs solve the "vanishing gradient" problem of standard RNNs with a unique cell structure (input, output, and forget gates), allowing the network to selectively remember information over long sequences. This is exceptionally powerful for stock market prediction where historical context is key.
+                </p>
+                <h3>Design Details</h3>
+                <ul>
+                    <li><i class="bi bi-check-circle"></i> <span><strong>Environment:</strong> Google Colab with Python 3 and GPU acceleration.</span></li>
+                    <li><i class="bi bi-check-circle"></i> <span><strong>Libraries:</strong> Pandas, NumPy, Matplotlib, Scikit-learn (`MinMaxScaler`), and Keras (TensorFlow).</span></li>
+                    <li><i class="bi bi-check-circle"></i> <span><strong>Model Architecture:</strong> A Keras `Sequential` model with two LSTM layers (50 units each), a `Dropout` layer (0.1 rate), and a `Dense` output layer with two neurons to predict 'Open' and 'Close' prices.</span></li>
+                </ul>
+              </div><!-- End Analysis Content-->
+
+              <!-- Methodology Content Pane -->
+              <div class="tab-pane fade" id="stock-methodology" role="tabpanel">
+ 
+                <h3>Methodology</h3>
+                <p>
+                  The project followed a systematic data science workflow, beginning with loading and preparing the `stock_data.csv` in Pandas. The data was then scaled to a range between 0 and 1 using `MinMaxScaler` for optimal neural network performance. The dataset was split into 80% for training and 20% for testing.
+                </p>
+                <p>
+                  A custom function transformed the data into input sequences (windows of 50 time steps) and corresponding labels. The LSTM model was then trained on these sequences for 80 epochs using the 'adam' optimizer. Finally, predictions on the test set were inverse-transformed and plotted against actual prices for visual validation.
+                </p>
+              </div><!-- End Methodology Content-->
+
+              <!-- Results Content Pane -->
+              <div class="tab-pane fade" id="stock-results" role="tabpanel">
+  
+                <h3>Implementation Results and Discussion</h3>
+                <p>
+                  The implementation was highly successful. The LSTM model demonstrated a strong ability to learn the underlying trends, achieving a very low average **Mean Absolute Error of just 0.0136** on the validation set. This indicates a high degree of predictive accuracy.
+                </p>
+                <h3>Conclusion</h3>
+                <p>
+                  This project successfully demonstrates the power and efficacy of using an LSTM-based deep learning model for stock market time-series forecasting. The findings confirm that LSTM networks are a superior alternative to traditional statistical models for handling complex, non-linear sequential data. The implications of this study are significant for investors and financial institutions, providing a data-driven tool to better understand market dynamics.
+                </p>
+                <!-- GitHub Button -->
+                <div class="text-center mt-4">
+                  <a href="assets/documents/LSTM+TimeSeries.pdf" target="_blank" rel="noopener noreferrer" class="project-link-btn">Link to the Project</a>
+                </div>
+              </div><!-- End Results Content-->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /Project Details Section -->
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Sanjay</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by Sanjay</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
