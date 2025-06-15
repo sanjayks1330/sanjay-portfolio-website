@@ -1275,146 +1275,266 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Gallery Styles My Jouney Section Carousel
+# Gallery Styles My Journey Section Carousel
 --------------------------------------------------------------*/
+
+/* Gallery Container */
 .gallery-container {
     position: relative;
     overflow: hidden;
+    padding: 0 60px;
+    margin: 0 auto;
     max-width: 100%;
-    margin: 0 auto; /* Center the container */
 }
 
-.gallery-wrapper {
-    overflow: hidden;
-    margin-top: 30px;
-}
-
-.gallery-grid {
+/* Gallery Grid */
+#gallery-grid {
     display: flex;
-    transition: transform 0.5s ease;
-    gap: 20px;
+    gap: 30px;
+    transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+    will-change: transform;
 }
 
+/* Gallery Items */
 .gallery-item {
+    flex: 0 0 auto;
+    width: calc(33.333% - 20px);
     position: relative;
+    border-radius: 15px;
     overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    flex: 0 0 calc(33.333% - 14px);
-    min-width: 300px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
 }
 
-.gallery-item:hover {
-    transform: translateY(-5px);
-}
-
+/* Gallery Item Image */
 .gallery-item img {
     width: 100%;
-    height: 250px;
+    height: 280px;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+/* Gallery Item Hover Effects */
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .gallery-item:hover img {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
+/* Gallery Label - Modern Badge Style */
+.gallery-label {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    z-index: 3;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover .gallery-label {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+/* Gallery Overlay - Hidden by default, shows on hover */
 .gallery-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 50%, transparent 100%);
     color: white;
-    padding: 20px;
+    padding: 40px 25px 25px;
     transform: translateY(100%);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .gallery-item:hover .gallery-overlay {
     transform: translateY(0);
 }
 
-.gallery-label {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    background: rgba(255, 255, 255, 0.95);
-    color: #333;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+/* Overlay Text Styles */
+.gallery-overlay h5 {
+    margin: 0 0 12px 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    transform: translateY(20px);
+    transition: transform 0.4s ease 0.1s, opacity 0.4s ease 0.1s;
+    opacity: 0;
 }
 
+.gallery-item:hover .gallery-overlay h5 {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.gallery-overlay p {
+    margin: 0;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    transform: translateY(20px);
+    transition: transform 0.4s ease 0.2s, opacity 0.4s ease 0.2s;
+    opacity: 0;
+}
+
+.gallery-item:hover .gallery-overlay p {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Navigation Arrows - Using Your Brand Color */
 .navigation-arrows {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    width: 50px;
-    height: 50px;
+    background: #ffffff;
+    border: 2px solid #e0e0e0;
     border-radius: 50%;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    z-index: 10;
     transition: all 0.3s ease;
-    z-index: 100;
-    font-size: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    color: #4CA4D4;
 }
 
 .navigation-arrows:hover {
-    background: rgba(0, 0, 0, 0.9);
+    background: #4CA4D4;
+    color: white;
+    border-color: #4CA4D4;
     transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 30px rgba(76, 164, 212, 0.4);
+}
+
+.navigation-arrows:active {
+    transform: translateY(-50%) scale(0.95);
+    background: #4594BF; /* Slightly darker shade when clicked */
 }
 
 .nav-left {
-    left: 10px; /* Position inside the container */
+    left: 15px;
 }
 
 .nav-right {
-    right: 10px; /* Position inside the container */
+    right: 15px;
 }
 
+.navigation-arrows i {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Alternative Label Styles - Use different gradients for variety */
+.gallery-item:nth-child(odd) .gallery-label {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.gallery-item:nth-child(3n) .gallery-label {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.gallery-item:nth-child(4n) .gallery-label {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+/* Responsive Design */
 @media (max-width: 1024px) {
     .gallery-item {
-        flex: 0 0 calc(50% - 10px);
-        min-width: 250px;
+        width: calc(50% - 15px);
+    }
+    
+    #gallery-grid {
+        gap: 20px;
     }
 }
 
 @media (max-width: 768px) {
+    .gallery-container {
+        padding: 0;
+    }
+    
     .gallery-item {
-        flex: 0 0 100%;
-        min-width: 280px;
+        width: 90%;
+        margin: 0 auto;
     }
     
     .gallery-item img {
-        height: 200px;
+        height: 250px;
     }
     
     .navigation-arrows {
         width: 40px;
         height: 40px;
-        font-size: 16px;
+        background: rgba(255, 255, 255, 0.95);
+        color: #4CA4D4;
+    }
+    
+    .navigation-arrows:hover {
+        background: #4CA4D4;
+        color: white;
     }
     
     .nav-left {
-        left: 5px;
+        left: 10px;
     }
     
     .nav-right {
-        right: 5px;
+        right: 10px;
+    }
+    
+    .navigation-arrows i {
+        font-size: 16px;
     }
 }
 
+/* Loading Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gallery-item {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.gallery-item:nth-child(1) { animation-delay: 0.1s; }
+.gallery-item:nth-child(2) { animation-delay: 0.2s; }
+.gallery-item:nth-child(3) { animation-delay: 0.3s; }
+.gallery-item:nth-child(4) { animation-delay: 0.4s; }
+.gallery-item:nth-child(5) { animation-delay: 0.5s; }
+.gallery-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* Clone items should not animate */
+.gallery-item.clone {
+    animation: none;
+    opacity: 1;
+}
 
 /* About Section - Comprehensive Responsive Fix */
 #about .container .row {

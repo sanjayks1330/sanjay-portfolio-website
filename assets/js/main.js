@@ -228,10 +228,11 @@
 
 })();
 
-
-// gallery Carousel JavaScript for smooth click of images
+// Gallery Carousel JavaScript for smooth click of images
 let currentSlide = 0;
 let isTransitioning = false;
+let totalOriginalItems = 0;
+let itemsPerView = 3;
 
 function getItemsPerView() {
     if (window.innerWidth <= 768) return 1;
@@ -241,118 +242,192 @@ function getItemsPerView() {
 
 function setupGallery() {
     const gallery = document.getElementById('gallery-grid');
-    if (!gallery) return;
-    
-    const items = gallery.querySelectorAll('.gallery-item');
-    const totalItems = items.length;
-    const itemsPerView = getItemsPerView();
-    
-    // Only clone if we have more items than items per view
-    if (totalItems > itemsPerView) {
-        // Clear any existing clones
-        gallery.querySelectorAll('.clone').forEach(clone => clone.remove());
-        
-        // Clone last items to beginning
-        for (let i = Math.max(0, totalItems - itemsPerView); i < totalItems; i++) {
-            const clone = items[i].cloneNode(true);
-            clone.classList.add('clone');
-            gallery.insertBefore(clone, items[0]);
-        }
-        
-        // Clone first items to end
-        for (let i = 0; i < Math.min(itemsPerView, totalItems); i++) {
-            const clone = items[i].cloneNode(true);
-            clone.classList.add('clone');
-            gallery.appendChild(clone);
-        }
-        
-        currentSlide = itemsPerView;
-    } else {
-        currentSlide = 0;
+    if (!gallery) {
+        console.log('Gallery grid not found');
+        return;
     }
     
+    // Remove any existing clones
+    const existingClones = gallery.querySelectorAll('.clone');
+    existingClones.forEach(clone => clone.remove());
+    
+    // Get original items
+    const items = gallery.querySelectorAll('.gallery-item');
+    totalOriginalItems = items.length;
+    
+    if (totalOriginalItems === 0) {
+        console.log('No gallery items found');
+        return;
+    }
+    
+    itemsPerView = getItemsPerView();
+    
+    // Clone all items before and after for infinite scroll
+    const itemsArray = Array.from(items);
+    
+    // Clone all items and prepend them (for going backwards)
+    itemsArray.forEach(item => {
+        const cloneBefore = item.cloneNode(true);
+        cloneBefore.classList.add('clone', 'clone-before');
+        gallery.insertBefore(cloneBefore, gallery.firstChild);
+    });
+    
+    // Clone all items and append them (for going forwards)
+    itemsArray.forEach(item => {
+        const cloneAfter = item.cloneNode(true);
+        cloneAfter.classList.add('clone', 'clone-after');
+        gallery.appendChild(cloneAfter);
+    });
+    
+    // Start at the first original item (after the prepended clones)
+    currentSlide = totalOriginalItems;
     updateGalleryPosition(false);
 }
 
 function updateGalleryPosition(animate = true) {
     const gallery = document.getElementById('gallery-grid');
-    if (!gallery || !gallery.children.length) return;
+    if (!gallery) return;
     
-    const itemWidth = gallery.children[0].offsetWidth + 20;
-    const translateX = -(currentSlide * itemWidth);
+    const items = gallery.querySelectorAll('.gallery-item');
+    if (items.length === 0) return;
     
-    gallery.style.transition = animate ? 'transform 0.5s ease' : 'none';
+    // Calculate item width including margin
+    const itemStyle = window.getComputedStyle(items[0]);
+    const itemWidth = items[0].offsetWidth + parseInt(itemStyle.marginRight) + parseInt(itemStyle.marginLeft);
+    
+    // Calculate offset to center the current items in view
+    const containerWidth = gallery.parentElement.offsetWidth;
+    const totalVisibleWidth = itemWidth * itemsPerView;
+    const centerOffset = (containerWidth - totalVisibleWidth) / 2;
+    
+    // Calculate translation
+    const translateX = -(currentSlide * itemWidth) + centerOffset;
+    
+    // Apply transform
+    gallery.style.transition = animate ? 'transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1)' : 'none';
     gallery.style.transform = `translateX(${translateX}px)`;
+    
+    // Handle infinite scroll reset
+    if (!animate) return;
+    
+    gallery.addEventListener('transitionend', function handleTransitionEnd() {
+        gallery.removeEventListener('transitionend', handleTransitionEnd);
+        
+        // Reset position if we've scrolled to clones
+        if (currentSlide >= totalOriginalItems * 2) {
+            // We've scrolled too far right, reset to original items
+            currentSlide = totalOriginalItems;
+            updateGalleryPosition(false);
+        } else if (currentSlide < totalOriginalItems) {
+            // We've scrolled too far left, reset to original items
+            currentSlide = totalOriginalItems * 2 - 1;
+            updateGalleryPosition(false);
+        }
+        
+        isTransitioning = false;
+    });
 }
 
 function nextSlide() {
-    if (isTransitioning) return;
-    
-    const gallery = document.getElementById('gallery-grid');
-    const items = gallery.querySelectorAll('.gallery-item:not(.clone)');
-    const totalItems = items.length;
-    const itemsPerView = getItemsPerView();
-    
-    // Don't slide if we have fewer items than view
-    if (totalItems <= itemsPerView) return;
+    if (isTransitioning || totalOriginalItems === 0) return;
     
     isTransitioning = true;
     currentSlide++;
     updateGalleryPosition(true);
-    
-    if (currentSlide >= totalItems + itemsPerView) {
-        setTimeout(() => {
-            currentSlide = itemsPerView;
-            updateGalleryPosition(false);
-            isTransitioning = false;
-        }, 500);
-    } else {
-        setTimeout(() => {
-            isTransitioning = false;
-        }, 500);
-    }
 }
 
 function previousSlide() {
-    if (isTransitioning) return;
-    
-    const gallery = document.getElementById('gallery-grid');
-    const items = gallery.querySelectorAll('.gallery-item:not(.clone)');
-    const totalItems = items.length;
-    const itemsPerView = getItemsPerView();
-    
-    // Don't slide if we have fewer items than view
-    if (totalItems <= itemsPerView) return;
+    if (isTransitioning || totalOriginalItems === 0) return;
     
     isTransitioning = true;
     currentSlide--;
     updateGalleryPosition(true);
-    
-    if (currentSlide < itemsPerView) {
-        setTimeout(() => {
-            currentSlide = totalItems + itemsPerView - 1;
-            updateGalleryPosition(false);
-            isTransitioning = false;
-        }, 500);
-    } else {
-        setTimeout(() => {
-            isTransitioning = false;
-        }, 500);
+}
+
+// Auto-play functionality (optional)
+let autoPlayInterval;
+
+function startAutoPlay(interval = 4000) {
+    stopAutoPlay(); // Clear any existing interval
+    autoPlayInterval = setInterval(nextSlide, interval);
+}
+
+function stopAutoPlay() {
+    if (autoPlayInterval) {
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = null;
     }
 }
 
-// Initialize
+// Initialize gallery when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById('gallery-grid')) {
-        setTimeout(setupGallery, 100);
+        setTimeout(() => {
+            setupGallery();
+            
+            // Optional: Start auto-play
+            // startAutoPlay();
+            
+            // Stop auto-play on hover
+            const galleryContainer = document.querySelector('.gallery-container');
+            if (galleryContainer) {
+                galleryContainer.addEventListener('mouseenter', stopAutoPlay);
+                galleryContainer.addEventListener('mouseleave', () => {
+                    // Optional: Restart auto-play on mouse leave
+                    // startAutoPlay();
+                });
+            }
+        }, 100);
     }
 });
 
-// Handle resize
+// Handle window resize
 let resizeTimer;
 window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(setupGallery, 250);
+    resizeTimer = setTimeout(() => {
+        const newItemsPerView = getItemsPerView();
+        if (newItemsPerView !== itemsPerView) {
+            setupGallery();
+        }
+    }, 250);
+});
+
+// Touch/Swipe support for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+function handleTouchStart(e) {
+    touchStartX = e.changedTouches[0].screenX;
+}
+
+function handleTouchEnd(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+}
+
+function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+            // Swiped left
+            nextSlide();
+        } else {
+            // Swiped right
+            previousSlide();
+        }
+    }
+}
+
+// Add touch listeners to gallery
+document.addEventListener('DOMContentLoaded', function() {
+    const gallery = document.getElementById('gallery-grid');
+    if (gallery) {
+        gallery.addEventListener('touchstart', handleTouchStart, { passive: true });
+        gallery.addEventListener('touchend', handleTouchEnd, { passive: true });
+    }
 });
 
 // Ensure about section alignment
