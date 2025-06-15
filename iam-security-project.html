@@ -4,13 +4,18 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Cloud IAM & Endpoint Security Project</title>
+  <title>Project Details - Cloud IAM & Endpoint Security Project</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
+<link rel="manifest" href="assets/img/site.webmanifest">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -36,13 +41,13 @@
   ======================================================== -->
 </head>
 
-<body class="portfolio-details-page">
+<body class="service-details-page">
 
   <header id="header" class="header dark-background d-flex flex-column">
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <div class="profile-img">
-      <img src="assets/img/my-profile-img.jpg" alt="" class="img-fluid rounded-circle">
+      <img src="assets/img/my-profile1-img.jpg" alt="" class="img-fluid rounded-circle">
     </div>
 
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
@@ -61,13 +66,15 @@
 
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="index.html" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
+      <ul>
+        <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
         <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
         <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
         <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-        <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-        
-        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>      </ul>
+        <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Certifications</a></li>
+        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+      </ul>
+
     </nav>
 
   </header>
@@ -81,76 +88,120 @@
         <nav class="breadcrumbs">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li class="current">Cloud IAM & Endpoint Security Project</li>
+            <li class="current">Project Details</li>
           </ol>
         </nav>
       </div>
     </div><!-- End Page Title -->
 
-    <!-- Portfolio Details Section -->
-    <section id="portfolio-details" class="portfolio-details section">
+    <!-- ======= Service Details Section ======= -->
+    <section id="service-details" class="service-details section">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="container">
 
         <div class="row gy-4">
 
-          <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper init-swiper">
+          <!-- Left Column: Navigation Menu -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            
+            <ul class="services-list nav nav-tabs flex-column" role="tablist">
 
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 5000
-                  },
-                  "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  }
-                }
-              </script>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link active" data-bs-toggle="tab" href="#project-overview" role="tab" aria-selected="true">Project Overview</a>
+              </li>
 
-              <div class="swiper-wrapper align-items-center">
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" href="#project-design" role="tab" aria-selected="false">Design & Analysis</a>
+              </li>
 
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/app-1.jpg" alt="">
-                </div>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" href="#project-methodology" role="tab" aria-selected="false">Methodology</a>
+              </li>
 
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/product-1.jpg" alt="">
-                </div>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" href="#project-results" role="tab" aria-selected="false">Results & Conclusion</a>
+              </li>
 
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/branding-1.jpg" alt="">
-                </div>
+            </ul>
 
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/books-1.jpg" alt="">
-                </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
           </div>
 
-          <div class="col-lg-4">
-            <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
-              <h3>Project information</h3>
-              <ul>
-                <li><strong>Category</strong>: Security</li>
-                <li><strong>Client</strong>: Personal Portfolio Project</li>
-                <li><strong>Project date</strong>: 28 May, 2025</li>
-                <li><strong>Project URL</strong>: <a href="#">https://github.com/sanjayks1330/it-projects-portfolio/tree/main/cloud-iam-security-project</a></li>
-              </ul>
-            </div>
-            <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-              <h2>Exercitationem repudiandae officiis neque suscipit</h2>
-              <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-              </p>
+          <!-- Right Column: Tab Content -->
+          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+            <div class="tab-content">
+
+              <!-- Overview Content Pane -->
+              <div class="tab-pane fade show active" id="project-overview" role="tabpanel">
+                
+
+                <h3>Introduction & Goal</h3>
+                <p>
+                  This project was conceived as a practical demonstration of a defense-in-depth security strategy within a Google Cloud environment. The primary goal was to move beyond default permissions and implement a security model that is both granular and context-aware. It addresses two fundamental questions in enterprise security: "Is this the right person?" (Identity) and "Are they accessing from a secure device?" (Endpoint).
+                </p>
+                <h3>Problem Statement</h3>
+                <p>
+                  In many cloud deployments, security is an afterthought, or overly broad permissions are granted for the sake of convenience. This project directly confronts this problem by building a permission model from the ground up based on the principle of least privilege and acknowledging that stolen credentials are a primary attack vector.
+                </p>
+                <h3>Key Objectives</h3>
+                <ul>
+                  <li><i class="bi bi-check-circle"></i> <span>Establish Least Privilege by building custom IAM roles.</span></li>
+                  <li><i class="bi bi-check-circle"></i> <span>Automate & Validate role assignments using the `gcloud` command-line tool.</span></li>
+                  <li><i class="bi bi-check-circle"></i> <span>Document Enterprise-Level Controls like Context-Aware Access.</span></li>
+                  <li><i class="bi bi-check-circle"></i> <span>Showcase a holistic security view connecting GCP identity with Workspace device management.</span></li>
+                </ul>
+                
+              </div><!-- End Overview Content-->
+
+              <!-- Design & Analysis Content Pane -->
+              <div class="tab-pane fade" id="project-design" role="tabpanel">
+
+                <h3>Architectural Approach</h3>
+                <p>
+                  The design philosophy was to build a security model in layers: identity (authenticated via Workspace, authorized via GCP IAM) and device context. This layered approach ensures that a failure at one level does not grant an attacker full access.
+                </p>
+                <h3>Phase 1: IAM Role Design</h3>
+                <ul>
+                    <li><i class="bi bi-check-circle"></i> <span><strong>HRViewer Role:</strong> Granted read-only access to specific IAM and Cloud Storage resources for auditing without modification rights.</span></li>
+                    <li><i class="bi bi-check-circle"></i> <span><strong>EngComputeAdmin Role:</strong> Provided limited administrative permissions for Compute Engine instances, allowing VM management without access to billing.</span></li>
+                </ul>
+                <h3>Phase 2: Context-Aware Access Design (Simulated)</h3>
+                <p>
+                  This phase was designed to mimic how a large enterprise would secure its environment by defining a "trusted device" based on a specific set of rules (desktop OS, disk encryption, screen lock, and endpoint verification) and grouping them into a single, manageable Access Level.
+                </p>
+              </div><!-- End Design Content-->
+
+              <!-- Methodology Content Pane -->
+              <div class="tab-pane fade" id="project-methodology" role="tabpanel">
+ 
+                <h3>Phase 1: Hands-on Implementation</h3>
+                <p>
+                  The methodology for the first phase followed a standard, practical workflow for a cloud administrator, from requirement gathering to programmatic assignment using `gcloud add-iam-policy-binding` commands, which is scriptable and auditable. Verification was performed after each command.
+                </p>
+                <h3>Phase 2: Structured Simulation</h3>
+                <p>
+                  For the second phase, a structured documentation approach was used. This involved creating clear, step-by-step guides in Markdown for setting up device policies, explaining the user and admin-side workflows, and creating a detailed walkthrough for policy creation, while explicitly acknowledging the licensing limitations.
+                </p>
+              </div><!-- End Methodology Content-->
+
+              <!-- Results Content Pane -->
+              <div class="tab-pane fade" id="project-results" role="tabpanel">
+
+                <h3>Implementation Results</h3>
+                <p>
+                  The primary result of Phase 1 was the successful creation and enforcement of a least-privilege access model, significantly reducing security risk. The use of `gcloud` proved efficient, and the audit log query provided a valuable lesson in cloud operational delays. The documentation from Phase 2 serves as a complete and actionable blueprint for any organization looking to implement device-based security.
+                </p>
+                <h3>Conclusion</h3>
+                <p>
+                  This project successfully demonstrated the design and implementation of a layered cloud security strategy. It proves that effective security relies on the intelligent integration of multiple services, combining identity-based controls in IAM with device-based controls in Workspace, reflecting a modern, zero-trust security mindset.
+                </p>
+
+                <!-- GitHub Button -->
+                <div class="text-center mt-4">
+                      <a href="https://github.com/sanjaykrishnan99/cloud-iam-security-project" target="_blank" rel="noopener noreferrer" class="project-link-btn">Link to the Project</a>
+                </div>
+
+              </div><!-- End Results Content-->
+
             </div>
           </div>
 
@@ -158,22 +209,21 @@
 
       </div>
 
-    </section><!-- /Portfolio Details Section -->
-
+    </section><!-- /Service Details Section -->
   </main>
 
   <footer id="footer" class="footer position-relative light-background">
 
     <div class="container">
       <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">iPortfolio</strong> <span>All Rights Reserved</span></p>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Sanjay</strong> <span>All Rights Reserved</span></p>
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by Sanjay</a>
       </div>
     </div>
 

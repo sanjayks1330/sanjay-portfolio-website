@@ -4,13 +4,18 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Incident Response Runbook</title>
+  <title>Project Details - Incident Response Runbook</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
+<link rel="manifest" href="assets/img/site.webmanifest">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -36,13 +41,13 @@
   ======================================================== -->
 </head>
 
-<body class="portfolio-details-page">
+<body class="service-details-page">
 
   <header id="header" class="header dark-background d-flex flex-column">
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <div class="profile-img">
-      <img src="assets/img/my-profile-img.jpg" alt="" class="img-fluid rounded-circle">
+      <img src="assets/img/my-profile1-img.jpg" alt="" class="img-fluid rounded-circle">
     </div>
 
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
@@ -61,14 +66,15 @@
 
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="index.html" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
+      <ul>
+        <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
         <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
         <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
         <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-        <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-        
-        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li> 
+        <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Certifications</a></li>
+        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
+
     </nav>
 
   </header>
@@ -78,103 +84,125 @@
     <!-- Page Title -->
     <div class="page-title dark-background">
       <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0">Incident Response Runbook</h1>
+        <h1 class="mb-2 mb-lg-0">Incident Response Runbook Project</h1>
         <nav class="breadcrumbs">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li class="current">Incident Response Runbook</li>
+            <li class="current">Project Details</li>
           </ol>
         </nav>
       </div>
     </div><!-- End Page Title -->
 
-    <!-- Portfolio Details Section -->
-    <section id="portfolio-details" class="portfolio-details section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
+    <!-- ======= Project Details Section ======= -->
+    <section id="service-details" class="service-details section">
+      <div class="container">
         <div class="row gy-4">
 
-          <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper init-swiper">
-
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 5000
-                  },
-                  "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  }
-                }
-              </script>
-
-              <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/app-1.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/product-1.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/branding-1.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/books-1.jpg" alt="">
-                </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
+          <!-- Left Column: Navigation Menu -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <ul class="services-list nav nav-tabs flex-column" role="tablist">
+              <li class="nav-item" role="presentation">
+                <a class="nav-link active" data-bs-toggle="tab" href="#ir-overview" role="tab" aria-selected="true">Project Overview</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" href="#ir-analysis" role="tab" aria-selected="false">Triage & Analysis</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" href="#ir-remediation" role="tab" aria-selected="false">Containment & Remediation</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" href="#ir-conclusion" role="tab" aria-selected="false">Review & Conclusion</a>
+              </li>
+            </ul>
           </div>
 
-          <div class="col-lg-4">
-            <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
-              <h3>Project information</h3>
-              <ul>
-                <li><strong>Category</strong>: Operations</li>
-                <li><strong>Client</strong>: Personal Portfolio Project</li>
-                <li><strong>Project date</strong>: 28 May, 2025</li>
-                <li><strong>Project URL</strong>: <a href="#">https://github.com/sanjayks1330/it-projects-portfolio/tree/main/incident-response-runbook</a></li>
-              </ul>
-            </div>
-            <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-              <h2>Exercitationem repudiandae officiis neque suscipit</h2>
-              <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-              </p>
+          <!-- Right Column: Tab Content -->
+          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+            <div class="tab-content">
+
+              <!-- Overview Content Pane -->
+              <div class="tab-pane fade show active" id="ir-overview" role="tabpanel">
+
+                <h3>Introduction</h3>
+                <p>
+                  This project simulates a real-world phishing attack within a live Google Workspace environment to demonstrate a structured, multi-phased incident response. The runbook covers the entire incident lifecycle, showcasing the practical application of Google's native security tools and GAM for advanced investigation.
+                </p>
+                <h3>Problem Statement</h3>
+                <p>
+                  When a phishing attack occurs, speed and accuracy are critical. Without a formal runbook, responses can be chaotic, leading to greater impact. This project addresses the need for a systematic, documented, and efficient process for handling phishing incidents in a modern cloud environment.
+                </p>
+                <h3>Key Objectives</h3>
+                <ul>
+                  <li><i class="bi bi-check-circle"></i> <span>Develop a structured, step-by-step incident response runbook.</span></li>
+                  <li><i class="bi bi-check-circle"></i> <span>Utilize native Google Workspace security tools for investigation and analysis.</span></li>
+                  <li><i class="bi bi-check-circle"></i> <span>Leverage GAM for advanced, command-line based investigation tasks.</span></li>
+                  <li><i class="bi bi-check-circle"></i> <span>Execute a formal post-incident review to document lessons learned.</span></li>
+                </ul>
+              </div><!-- End Overview Content-->
+
+              <!-- Triage & Analysis Content Pane -->
+              <div class="tab-pane fade" id="ir-analysis" role="tabpanel">
+
+                <h3>Project Analysis</h3>
+                <p>
+                  The response is broken down into logical phases, reflecting industry-standard IR frameworks. The initial triage involves validating the threat by analyzing email headers, searching logs to determine the blast radius, and checking the security posture of the affected user's account, including 2FA status.
+                </p>
+                <h3>Design Details: Investigation Tools</h3>
+                <ul>
+                    <li><i class="bi bi-check-circle"></i> <span><strong>Google Workspace Admin Console:</strong> Used for visually inspecting user security settings, reviewing OAuth applications, searching email logs, and investigating user login activity.</span></li>
+                    <li><i class="bi bi-check-circle"></i> <span><strong>GAM (Google Apps Manager):</strong> Leveraged for performing a domain-wide search for the phishing email, a task demonstrating advanced administrative capability.</span></li>
+                </ul>
+              </div><!-- End Triage Content-->
+
+              <!-- Remediation Content Pane -->
+              <div class="tab-pane fade" id="ir-remediation" role="tabpanel">
+ 
+                <h3>Containment & Remediation</h3>
+                <p>
+                  The project demonstrates a clear understanding of containment strategies. The primary goal is to remove the threat, which involves deleting the phishing emails from all affected inboxes. A critical real-world element is highlighted: the `gam-error-log.txt` shows that organizational policies can prevent certain automated actions, forcing a pivot to manual deletion via the investigation tool.
+                </p>
+                 <h3>Account Compromise Workflow</h3>
+                <p>If an account is believed to be compromised, the runbook correctly prioritizes immediate remediation steps: password reset, revoking all active sessions, and auditing OAuth app access.</p>
+              </div><!-- End Remediation Content-->
+
+              <!-- Conclusion Content Pane -->
+              <div class="tab-pane fade" id="ir-conclusion" role="tabpanel">
+
+                <h3>Post-Incident Review & Lessons Learned</h3>
+                <p>
+                  A formal post-incident review was created, including a timeline of events and a summary of actions taken. The review identified actionable improvement points, such as enforcing stricter 2FA for high-risk departments and enhancing user training—key outcomes of any mature IR process. The attempt to use GAM for automated deletion also provided a critical insight into how organizational policies can impact IR workflows.
+                </p>
+                <h3>Conclusion</h3>
+                <p>
+                  This project provides a robust and realistic demonstration of managing a phishing attack in a Google Workspace environment. It showcases a clear, systematic approach that combines technical investigation skills with formal documentation and communication, reflecting a mature, security-conscious mindset focused on continuous improvement.
+                </p>
+                <!-- GitHub Button -->
+                <div class="text-center mt-4">
+                  <a href="https://github.com/sanjayks1330/it-projects-portfolio/tree/main/incident-response-project" target="_blank" rel="noopener noreferrer" class="project-link-btn">Link to the Project</a>
+                </div>
+              </div><!-- End Conclusion Content-->
+
             </div>
           </div>
 
         </div>
-
       </div>
-
-    </section><!-- /Portfolio Details Section -->
-
+    </section><!-- /Project Details Section -->
   </main>
 
   <footer id="footer" class="footer position-relative light-background">
 
     <div class="container">
       <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">iPortfolio</strong> <span>All Rights Reserved</span></p>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Sanjay</strong> <span>All Rights Reserved</span></p>
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by Sanjay</a>
       </div>
     </div>
 

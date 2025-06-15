@@ -4,13 +4,18 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Google Workspace Admin Project</title>
+  <title>Project Details - Google Workspace Admin</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
+<link rel="manifest" href="assets/img/site.webmanifest">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -36,13 +41,13 @@
   ======================================================== -->
 </head>
 
-<body class="portfolio-details-page">
+<body class="service-details-page">
 
   <header id="header" class="header dark-background d-flex flex-column">
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <div class="profile-img">
-      <img src="assets/img/my-profile-img.jpg" alt="" class="img-fluid rounded-circle">
+      <img src="assets/img/my-profile1-img.jpg" alt="" class="img-fluid rounded-circle">
     </div>
 
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
@@ -61,14 +66,15 @@
 
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="index.html" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
+      <ul>
+        <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
         <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
         <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
         <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-        <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-        
-        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li> 
+        <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Certifications</a></li>
+        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
+
     </nav>
 
   </header>
@@ -78,103 +84,133 @@
     <!-- Page Title -->
     <div class="page-title dark-background">
       <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0">Google Workspace Admin Project</h1>
+        <h1 class="mb-2 mb-lg-0">Google Workspace Administration Project</h1>
         <nav class="breadcrumbs">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li class="current">Google Workspace Admin Project</li>
+            <li class="current">Project Details</li>
           </ol>
         </nav>
       </div>
     </div><!-- End Page Title -->
 
-    <!-- Portfolio Details Section -->
-    <section id="portfolio-details" class="portfolio-details section">
+    <!-- ======= Service Details Section ======= -->
+    <section id="service-details" class="service-details section">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="container">
 
         <div class="row gy-4">
 
-          <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper init-swiper">
+          <!-- Left Column: Navigation Menu -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            
+            <ul class="services-list nav nav-tabs flex-column" role="tablist">
+              <li class="nav-item" role="presentation">
+                <a class="nav-link active" data-bs-toggle="tab" href="#workspace-overview" role="tab" aria-selected="true">Project Overview</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" href="#workspace-config" role="tab" aria-selected="false">Configuration & Policy</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" href="#workspace-automation" role="tab" aria-selected="false">Automation with GAM</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" href="#workspace-results" role="tab" aria-selected="false">Results & Conclusion</a>
+              </li>
+            </ul>
 
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 5000
-                  },
-                  "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  }
-                }
-              </script>
-
-              <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/app-1.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/product-1.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/branding-1.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/books-1.jpg" alt="">
-                </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
           </div>
 
-          <div class="col-lg-4">
-            <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
-              <h3>Project information</h3>
-              <ul>
-                <li><strong>Category</strong>: Administration</li>
-                <li><strong>Client</strong>: Personal Portfolio Project</li>
-                <li><strong>Project date</strong>: 20 May, 2025</li>
-                <li><strong>Project URL</strong>: <a href="#">https://github.com/sanjayks1330/it-projects-portfolio/tree/main/google-workspace-admin-project</a></li>
-              </ul>
+          <!-- Right Column: Tab Content -->
+          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+            <div class="tab-content">
+
+              <!-- Overview Content Pane -->
+              <div class="tab-pane fade show active" id="workspace-overview" role="tabpanel">
+                <h3>Introduction</h3>
+                <p>
+                  Effective administration of a digital workplace is crucial for organizational efficiency, security, and scalability. This project demonstrates a comprehensive setup and management of a Google Workspace environment for a mock company, `sanjaytech.io`.
+                </p>
+                <h3>Problem Statement</h3>
+                <p>
+                  As organizations grow, manually managing users and enforcing security policies becomes inefficient and error-prone. This project addresses these challenges by creating a scalable Workspace architecture where security is granularly applied and user onboarding is automated.
+                </p>
+                <h3>Key Objectives</h3>
+                <ul>
+                  <li><i class="bi bi-check-circle"></i> <span>Structure the organization using distinct Organizational Units (OUs).</span></li>
+                  <li><i class="bi bi-check-circle"></i> <span>Implement department-specific security and data-sharing policies.</span></li>
+                  <li><i class="bi bi-check-circle"></i> <span>Automate user onboarding with GAM (Google Apps Manager) and scripting.</span></li>
+                  <li><i class="bi bi-check-circle"></i> <span>Enforce foundational device security for mobile and desktop endpoints.</span></li>
+                </ul>
+              </div><!-- End Overview Content-->
+
+              <!-- Configuration & Policy Content Pane -->
+              <div class="tab-pane fade" id="workspace-config" role="tabpanel">
+                <h3>Project Analysis</h3>
+                <p>
+                  This project centers on the core pillars of modern IT administration: structure, security, and automation. By segmenting users into `HR` and `Engineering` OUs, we can move away from a one-size-fits-all security model and apply nuanced policies where they matter most.
+                </p>
+                <h3>Design Details</h3>
+                <ul>
+                    <li><i class="bi bi-check-circle"></i> <span><strong>Workspace Configuration:</strong> Established `HR` and `Engineering` OUs under the `sanjaytech.io` domain via the Admin Console.</span></li>
+                    <li><i class="bi bi-check-circle"></i> <span><strong>User and Group Provisioning:</strong> Created test users and corresponding Google Groups (`hr-team@` and `engineering@`) to simulate a real departmental structure.</span></li>
+                    <li><i class="bi bi-check-circle"></i> <span><strong>Policy Implementation:</strong> Enforced 2FA for the Engineering OU, set strict Drive sharing rules for HR, and applied mobile device policies (screen lock, blocking rooted devices).</span></li>
+                </ul>
+              </div><!-- End Config Content-->
+
+              <!-- Automation Content Pane -->
+              <div class="tab-pane fade" id="workspace-automation" role="tabpanel">
+                <h3>Automation with GAM (Google Apps Manager)</h3>
+                <p>
+                  The true power of this project is showcased in its use of automation. By scripting the onboarding process with GAM, we transition from manual, error-prone "click-ops" to a reliable, repeatable, and scalable workflow. The `gam-onboard.sh` script serves as a real-world example of how to handle batch user creation efficiently.
+                </p>
+                <h3>Automation Scripting Details</h3>
+                <p>The `gam-onboard.sh` script was designed to parse a CSV file. For each row, it executes three GAM commands to:</p>
+                <ol>
+                  <li>Create a new user with a specified name, password, and OU assignment.</li>
+                  <li>Add that new user to their designated departmental Google Group.</li>
+                  <li>Assign a `SendAs` email alias to the user's Gmail account.</li>
+                </ol>
+              </div><!-- End Automation Content-->
+
+              <!-- Results Content Pane -->
+              <div class="tab-pane fade" id="workspace-results" role="tabpanel">
+                <h3>Implementation Results and Discussion</h3>
+                <p>
+                  The project was executed successfully, resulting in a well-structured and secure Google Workspace environment. The automated onboarding script functioned as designed, proving the viability of this approach for scalable user management. The application of distinct policies at the OU level was also successful, demonstrating the ability to enforce a stricter security posture for one team while applying data-centric controls for another.
+                </p>
+                <h3>Conclusion</h3>
+                <p>
+                  This Google Workspace Administration project effectively demonstrates the key competencies required to manage a modern digital workplace. By successfully building a departmental hierarchy, applying tailored policies, and scripting the user onboarding process, this project proves a deep understanding of both the strategic principles and the practical, hands-on skills necessary for effective Google Workspace management.
+                </p>
+                <!-- GitHub Button -->
+                <div class="text-center mt-4">
+                    <a href="https://github.com/sanjayks1330/it-projects-portfolio/tree/main/google-workspace-admin-project" target="_blank" rel="noopener noreferrer" class="project-link-btn">Link to the Project</a>
+                </div>
+              </div><!-- End Results Content-->
+
             </div>
-            <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-              <h2>Exercitationem repudiandae officiis neque suscipit</h2>
-              <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-              </p>
-            </div>
-          </div>
+          </div> <!-- End Right Column: Tab Content -->
 
         </div>
 
       </div>
 
-    </section><!-- /Portfolio Details Section -->
-
+    </section><!-- /Service Details Section -->
   </main>
 
   <footer id="footer" class="footer position-relative light-background">
 
     <div class="container">
       <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">iPortfolio</strong> <span>All Rights Reserved</span></p>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Sanjay</strong> <span>All Rights Reserved</span></p>
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by Sanjay</a>
       </div>
     </div>
 
