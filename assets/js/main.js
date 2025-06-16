@@ -291,14 +291,26 @@ function updateGalleryPosition(animate = true) {
     const items = gallery.querySelectorAll('.gallery-item');
     if (items.length === 0) return;
     
-    // Calculate item width including margin
+    // Calculate item width including margin/gap
     const itemStyle = window.getComputedStyle(items[0]);
-    const itemWidth = items[0].offsetWidth + parseInt(itemStyle.marginRight) + parseInt(itemStyle.marginLeft);
+    const gapStyle = window.getComputedStyle(gallery);
+    const gap = parseInt(gapStyle.gap) || 20;
+    const itemWidth = items[0].offsetWidth + gap;
     
     // Calculate offset to center the current items in view
     const containerWidth = gallery.parentElement.offsetWidth;
-    const totalVisibleWidth = itemWidth * itemsPerView;
-    const centerOffset = (containerWidth - totalVisibleWidth) / 2;
+    
+    let centerOffset = 0;
+    
+    // Special handling for mobile
+    if (window.innerWidth <= 768) {
+        // For mobile, center single item
+        centerOffset = (containerWidth - items[0].offsetWidth) / 2;
+    } else {
+        // For desktop/tablet, center multiple items
+        const totalVisibleWidth = (items[0].offsetWidth * itemsPerView) + (gap * (itemsPerView - 1));
+        centerOffset = (containerWidth - totalVisibleWidth) / 2;
+    }
     
     // Calculate translation
     const translateX = -(currentSlide * itemWidth) + centerOffset;
@@ -389,6 +401,9 @@ window.addEventListener('resize', () => {
         const newItemsPerView = getItemsPerView();
         if (newItemsPerView !== itemsPerView) {
             setupGallery();
+        } else {
+            // Just update position to recenter
+            updateGalleryPosition(false);
         }
     }, 250);
 });
@@ -430,6 +445,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Keyboard navigation
+document.addEventListener('keydown', function(e) {
+    if (document.getElementById('gallery-grid')) {
+        if (e.key === 'ArrowLeft') {
+            previousSlide();
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
+        }
+    }
+});
+
 // Ensure about section alignment
 window.addEventListener('load', function() {
     const aboutSection = document.querySelector('#about');
@@ -464,6 +490,8 @@ window.addEventListener('resize', function() {
         }
     }
 });
+// End of Gallery Carousel
+
 
 // Handle form submission without redirect
 document.addEventListener('DOMContentLoaded', function() {

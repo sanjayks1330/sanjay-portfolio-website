@@ -1427,7 +1427,7 @@ section,
 
 .navigation-arrows:active {
     transform: translateY(-50%) scale(0.95);
-    background: #4594BF; /* Slightly darker shade when clicked */
+    background: #4594BF;
 }
 
 .nav-left {
@@ -1467,25 +1467,42 @@ section,
     }
 }
 
+/* Mobile Responsive Fix */
 @media (max-width: 768px) {
     .gallery-container {
-        padding: 0;
+        padding: 0 20px;
+        overflow: visible;
+    }
+    
+    #gallery-grid {
+        gap: 20px;
+        padding: 0 10px;
     }
     
     .gallery-item {
-        width: 90%;
+        width: calc(100% - 40px);
+        max-width: 350px;
         margin: 0 auto;
+        flex-shrink: 0;
     }
     
     .gallery-item img {
         height: 250px;
     }
     
+    /* Center the gallery items properly */
+    .gallery-item:first-child,
+    .gallery-item.clone:first-child {
+        margin-left: 20px;
+    }
+    
+    /* Navigation arrows positioned inside the viewport */
     .navigation-arrows {
         width: 40px;
         height: 40px;
         background: rgba(255, 255, 255, 0.95);
         color: #4CA4D4;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
     
     .navigation-arrows:hover {
@@ -1494,15 +1511,34 @@ section,
     }
     
     .nav-left {
-        left: 10px;
+        left: 25px;
     }
     
     .nav-right {
-        right: 10px;
+        right: 25px;
     }
     
     .navigation-arrows i {
         font-size: 16px;
+    }
+}
+
+/* Extra small devices (phones in portrait) */
+@media (max-width: 480px) {
+    .gallery-container {
+        padding: 0 10px;
+    }
+    
+    .gallery-item {
+        width: calc(100% - 20px);
+    }
+    
+    .nav-left {
+        left: 15px;
+    }
+    
+    .nav-right {
+        right: 15px;
     }
 }
 
@@ -1535,6 +1571,8 @@ section,
     animation: none;
     opacity: 1;
 }
+/* End of Gallery Styles My Journey Section Carousel */
+
 
 /* About Section - Comprehensive Responsive Fix */
 #about .container .row {
